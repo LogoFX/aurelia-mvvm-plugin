@@ -1,0 +1,77 @@
+{
+    "name": "aurelia-skeleton-plugin-typescript",
+    "version": "0.5.1",
+    "description": "Create typescript plugins for Aurelia",
+    "keywords": [
+        "aurelia",
+        "plugin",
+        "skeleton",
+        "typescript"
+    ],
+    "homepage": "https://github.com/vegarringdal/skeleton-plugin-typescript",
+    "bugs": {
+        "url": "https://github.com/vegarringdal/skeleton-plugin-typescript/issues"
+    },
+    "license": "MIT",
+    "author": "Vegar Ringdal (vegar.ringdal@gmail.com)",
+    "main": "dist/commonjs/index.js",
+    "typings": "dist/commonjs/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"
+    },
+    "scripts": {
+        "setup": "node setup",
+        "run-watch": "gulp watch",
+        "test-watch": "./node_modules/.bin/jest --config=jest.config.json --watch",
+        "build": "gulp build",
+        "test": "./node_modules/.bin/jest --config=jest.config.json",
+        "build-all": "node setup & gulp build & gulp test"
+    },
+    "devDependencies": {
+        "@types/jest": "^21.1.6",
+        "@types/jsdom": "^11.0.4",
+        "@types/node": "^8.0.53",
+        "aurelia-bootstrapper": "^2.1.1",
+        "aurelia-loader-nodejs": "^1.0.1",
+        "aurelia-pal-nodejs": "^1.0.0-beta.2.0.0",
+        "aurelia-testing": "^1.0.0-beta.4.0.0",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-plumber": "^1.1.0",
+        "gulp-run": "^1.7.1",
+        "gulp-sourcemaps": "^2.6.1",
+        "gulp-tslint": "^8.1.2",
+        "gulp-typescript": "^3.2.3",
+        "jest": "^21.2.1",
+        "jsdom": "^11.3.0",
+        "merge2": "^1.2.0",
+        "require-dir": "^0.3.2",
+        "run-sequence": "^2.2.0",
+        "ts-jest": "^21.2.2",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vinyl-paths": "^2.1.0"
+    },
+    "jspm": {
+        "registry": "npm",
+        "main": "index",
+        "format": "cjs",
+        "directories": {
+            "dist": "dist/commonjs"
+        },
+        "devDependencies": {}
+    },
+    "dependencies": {
+        "aurelia-framework": "1.1.5"
+    },
+    "aurelia": {
+        "usedBy": [],
+        "build": {
+            "resources": [
+                "aurelia-skeleton-plugin-typescript",
+                "aurelia-skeleton-plugin-typescript/index"
+            ]
+        }
+    }
+}
