@@ -39,12 +39,13 @@
         "source-map": "^0.6.1",
         "stylus": "^0.54.5",
         "tslint": "^5.8.0",
-        "typescript": "2.6.1",
+        "typescript": "2.6.2",
         "whatwg-fetch": "^2.0.3",
         "fuse-box-aurelia-loader": "^2.0.1",
-        "fuse-box-typechecker": "^2.6.2"
+        "fuse-box-typechecker": "^2.6.3"
     },
     "dependencies": {
-        "aurelia-mvvm-plugin": "../aurelia-mvvm-plugin-0.1.1.tgz"
+        "@logofx/aurelia-mvvm-plugin": "../logofx-aurelia-mvvm-plugin-0.1.9.tgz"
+
     }
 }

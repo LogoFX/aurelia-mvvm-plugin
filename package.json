@@ -1,6 +1,6 @@
 {
-    "name": "aurelia-mvvm-plugin",
-    "version": "0.1.1",
+    "name": "@logofx/aurelia-mvvm-plugin",
+    "version": "0.1.9",
     "description": "The set of helpfull infrastructures to build MVVM apps with Aurelia framework.",
     "keywords": [
         "aurelia",
@@ -19,14 +19,14 @@
     "typings": "dist/commonjs/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin"
+        "url": "git+https://github.com/LogoFX/aurelia-mvvm-plugin.git"
     },
     "scripts": {
         "setup": "node setup",
         "run-watch": "gulp watch",
-        "test-watch": "./node_modules/.bin/jest --config=jest.config.json --watch",
+        "test-watch": "jest --config=jest.config.json --watch",
         "build": "gulp build",
-        "test": "./node_modules/.bin/jest --config=jest.config.json",
+        "test": "jest --config=jest.config.json",
         "build-all": "node setup & gulp build & gulp test"
     },
     "devDependencies": {
@@ -74,5 +74,8 @@
                 "aurelia-mvvm-plugin/index"
             ]
         }
+    },
+    "directories": {
+        "test": "test"
     }
 }

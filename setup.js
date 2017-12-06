@@ -7,8 +7,9 @@ const spawn = require("child_process").spawn;
 const npm = process.platform === "win32" ? "npm.cmd" : "npm";
 const mode = "inherit";
 
-let PLUGIN_NAME = "aurelia-mvvm-plugin";
-let PLUGIN_VERSION = "0.5.0";
+let SCOPE_NAME = "logofx";
+let PLUGIN_NAME = "@logofx/aurelia-mvvm-plugin";
+let PLUGIN_VERSION = "0.1.0";
 
 function spawner(cmd, args, dirname) {
     return new Promise((resolve, reject) => {
@@ -85,7 +86,9 @@ function updateSamplePackage() {
         }
         let obj = JSON.parse(data);
 
-        obj.dependencies[PLUGIN_NAME] = "../" + PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like ../aurelia-toolbelt-0.5.6.tgz
+        let pluginName = PLUGIN_NAME.split('/')[1];
+
+        obj.dependencies[PLUGIN_NAME] = "../" + SCOPE_NAME + "-" + pluginName + '-' + PLUGIN_VERSION + '.tgz'; // like ../aurelia-toolbelt-0.5.6.tgz
 
         obj = JSON.stringify(obj, null, 4);
 
