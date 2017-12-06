@@ -27,10 +27,10 @@ var TypeHelper = require('../sample/node_modules/fuse-box-typechecker').TypeHelp
 
 
 // code we want injected so aurelia loads
-var injectBoostrapAndLoader = function () {
-    var loader = function () { }
-    loader.prototype.init = function (context) { }
-    loader.prototype.bundleEnd = function (context) {
+var injectBoostrapAndLoader = function() {
+    var loader = function() {}
+    loader.prototype.init = function(context) {}
+    loader.prototype.bundleEnd = function(context) {
         context.source.addContent(`FuseBox.import("fuse-box-aurelia-loader")`);
         context.source.addContent(`FuseBox.import("aurelia-bootstrapper")`);
         context.source.addContent(`window.FUSEBOX_AURELIA_LOADER_RELOAD = true;`);
@@ -42,7 +42,7 @@ var injectBoostrapAndLoader = function () {
 
 
 // sample typechecker
-gulp.task('sample-typechecker', function () {
+gulp.task('sample-typechecker', function() {
 
     var testWatch = TypeHelper({
         tsConfig: './tsconfig.json',
@@ -59,7 +59,7 @@ gulp.task('sample-typechecker', function () {
 
 
 // plugin typechecker
-gulp.task('plugin-typechecker', function () {
+gulp.task('plugin-typechecker', function() {
 
     var testWatch = TypeHelper({
         tsConfig: './tsconfig.json',
@@ -76,7 +76,7 @@ gulp.task('plugin-typechecker', function () {
 
 
 // this task will start fusebox (sample)
-gulp.task('fuse-sample', function () {
+gulp.task('fuse-sample', function() {
 
     // typechecker
     const TypeCheckPlugins = require('../sample/node_modules/fuse-box-typechecker').TypeCheckPlugin;
@@ -139,7 +139,7 @@ gulp.task('fuse-sample', function () {
 
 
 // this builds the plugin package
-gulp.task('fuse-plugin', function () {
+gulp.task('fuse-plugin', function() {
 
     const fuse = FuseBox.init({
         homeDir: '../src',
@@ -153,13 +153,13 @@ gulp.task('fuse-plugin', function () {
             RawPlugin(['.css', '.woff'])
         ],
         package: {
-            name: "aurelia-skeleton-plugin-typescript",
+            name: "aurelia-mvvm-plugin",
             main: "index.ts"
         },
     });
 
 
-    fuse.bundle('aurelia-skeleton-plugin-typescript')
+    fuse.bundle('aurelia-mvvm-plugin')
         .watch().cache(false)
         .instructions(`
             + [**/*.html] 
@@ -174,7 +174,7 @@ gulp.task('fuse-plugin', function () {
 
 
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     return runSequence(
         'fuse-plugin', 'fuse-sample', 'plugin-typechecker', 'sample-typechecker'
     );

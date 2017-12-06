@@ -7,92 +7,92 @@ const spawn = require("child_process").spawn;
 const npm = process.platform === "win32" ? "npm.cmd" : "npm";
 const mode = "inherit";
 
-let PLUGIN_NAME = "aurelia-skeleton-plugin-typescript";
+let PLUGIN_NAME = "aurelia-mvvm-plugin";
 let PLUGIN_VERSION = "0.5.0";
 
 function spawner(cmd, args, dirname) {
-  return new Promise((resolve, reject) => {
-    var childSpawn = spawn(cmd, args, {
-      stdio: mode,
-      cwd: dirname
+    return new Promise((resolve, reject) => {
+        var childSpawn = spawn(cmd, args, {
+            stdio: mode,
+            cwd: dirname
+        });
+        childSpawn.on("exit", function(code) {
+            if (code != 0) {
+                console.log("Failed: " + code);
+                reject();
+            } else {
+                resolve();
+            }
+        });
     });
-    childSpawn.on("exit", function (code) {
-      if (code != 0) {
-        console.log("Failed: " + code);
-        reject();
-      } else {
-        resolve()
-      }
-    });
-  });
 }
 
 function safeIncreaseVersion(version) {
 
-  let theVersion = parseInt(version);
+    let theVersion = parseInt(version);
 
-  if (theVersion >= Number.MAX_SAFE_INTEGER - 1) {
-    console.warn('First delete existing yarn,npm,node,fuse-box,webpack');
-    return 0;
-  } else {
-    return theVersion + 1;
-  }
+    if (theVersion >= Number.MAX_SAFE_INTEGER - 1) {
+        console.warn('First delete existing yarn,npm,node,fuse-box,webpack');
+        return 0;
+    } else {
+        return theVersion + 1;
+    }
 }
 
 function updatePluginPackage() {
-  console.info('Updating plugin package.json...');
-  let pluginPackageFile = './package.json';
-  fs.readFile(pluginPackageFile, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    let obj = JSON.parse(data);
+    console.info('Updating plugin package.json...');
+    let pluginPackageFile = './package.json';
+    fs.readFile(pluginPackageFile, 'utf8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        let obj = JSON.parse(data);
 
-    let versions = new Array();
+        let versions = new Array();
 
-    versions = obj.version.split('.');
+        versions = obj.version.split('.');
 
-    PLUGIN_NAME = obj.name || PLUGIN_NAME;
-    PLUGIN_VERSION = obj.version || PLUGIN_VERSION;
+        PLUGIN_NAME = obj.name || PLUGIN_NAME;
+        PLUGIN_VERSION = obj.version || PLUGIN_VERSION;
 
-    var fileName = PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like aurelia-toolbelt-0.5.6.tgz
+        var fileName = PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like aurelia-toolbelt-0.5.6.tgz
 
-    if (versions && (versions.length > 0)) {
-      versions[versions.length - 1] = safeIncreaseVersion(versions[versions.length - 1]);
-      console.info(`Version changing ${obj.version} => ${versions.join('.')}`);
-      obj.version = versions.join('.');
-      PLUGIN_VERSION = versions.join('.');
-    }
+        if (versions && (versions.length > 0)) {
+            versions[versions.length - 1] = safeIncreaseVersion(versions[versions.length - 1]);
+            console.info(`Version changing ${obj.version} => ${versions.join('.')}`);
+            obj.version = versions.join('.');
+            PLUGIN_VERSION = versions.join('.');
+        }
 
-    obj = JSON.stringify(obj, null, 4);
+        obj = JSON.stringify(obj, null, 4);
 
-    fs.writeFile(pluginPackageFile, obj);
+        fs.writeFile(pluginPackageFile, obj);
 
-    fs.unlink(fileName, function (error) {});
+        fs.unlink(fileName, function(error) {});
 
-    console.log('Plugin package.json updated.');
+        console.log('Plugin package.json updated.');
 
-  });
+    });
 
 }
 
 function updateSamplePackage() {
-  console.info('Updating sample package.json...');
-  let samplePackageFile = './sample/package.json';
-  fs.readFile(samplePackageFile, 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    let obj = JSON.parse(data);
-    
-    obj.dependencies[PLUGIN_NAME] = "../" + PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like ../aurelia-toolbelt-0.5.6.tgz
+    console.info('Updating sample package.json...');
+    let samplePackageFile = './sample/package.json';
+    fs.readFile(samplePackageFile, 'utf8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        let obj = JSON.parse(data);
 
-    obj = JSON.stringify(obj, null, 4);
+        obj.dependencies[PLUGIN_NAME] = "../" + PLUGIN_NAME + '-' + PLUGIN_VERSION + '.tgz'; // like ../aurelia-toolbelt-0.5.6.tgz
 
-    fs.writeFile(samplePackageFile, obj);
-    console.log('Sample package.json updated.');
+        obj = JSON.stringify(obj, null, 4);
 
-  });
+        fs.writeFile(samplePackageFile, obj);
+        console.log('Sample package.json updated.');
+
+    });
 }
 
 this.mainPath = `${__dirname}${process.platform === "win32" ? "\\":"//"}`
@@ -100,13 +100,13 @@ this.samplePath = `${__dirname}${process.platform === "win32" ? "\\sample":"//sa
 
 let NpmInstallRoot = spawner(npm, ["install"], this.mainPath).then(() => {
 
-  updatePluginPackage();
+    updatePluginPackage();
 
-  let NpmPackRoot = spawner(npm, ["pack"], this.mainPath).then(() => {
+    let NpmPackRoot = spawner(npm, ["pack"], this.mainPath).then(() => {
 
-    updateSamplePackage();
+        updateSamplePackage();
 
-    let NpmInstallSample = spawner(npm, ["install"], this.samplePath);
-  });
+        let NpmInstallSample = spawner(npm, ["install"], this.samplePath);
+    });
 
 });

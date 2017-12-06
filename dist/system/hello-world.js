@@ -7,6 +7,7 @@ System.register([], function (exports_1, context_1) {
             HelloWorld = (function () {
                 function HelloWorld() {
                     this.msg = 'Hello Aurelia!';
+                    this.greetings = 'David Kossoglyad';
                 }
                 return HelloWorld;
             }());

@@ -343,9 +343,9 @@ aurelia-router@^1.0.1:
     aurelia-path "^1.0.0"
     aurelia-route-recognizer "^1.0.0"
 
-aurelia-skeleton-plugin-typescript@../aurelia-skeleton-plugin-typescript-0.5.0.tgz:
+aurelia-mvvm-plugin@../aurelia-mvvm-plugin-0.1.0.tgz:
   version "0.5.0"
-  resolved "../aurelia-skeleton-plugin-typescript-0.5.0.tgz#bd6fe1f67f7b3931597c3e4ba12dfbcc80d4010c"
+  resolved "../aurelia-mvvm-plugin-0.1.0.tgz#bd6fe1f67f7b3931597c3e4ba12dfbcc80d4010c"
   dependencies:
     fuse.js "3.2.0"
     jalali-moment "3.0.1"

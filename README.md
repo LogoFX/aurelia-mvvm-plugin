@@ -1,8 +1,6 @@
-# aurelia-skeleton-plugin-typescript
+# aurelia-mvvm-plugin
 
-Simple starter kit for making plugins for aurelia
 This also contain a sample
-
 
 ### How to get everything installed after download
 * run `node setup`

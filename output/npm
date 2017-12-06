@@ -1,5 +1,5 @@
 
-> aurelia-skeleton-plugin-typescript@0.5.0 prepublish E:\Projects\git\skeleton-plugin-typescript
+> aurelia-mvvm-plugin@0.1.0 prepublish E:\Projects\git\skeleton-plugin-typescript
 > typings install
 
 [?25h
@@ -28,4 +28,4 @@
 +-- aurelia-templating-binding
 +-- aurelia-templating-resources
 `-- aurelia-templating-router
-+-- aurelia-skeleton-plugin-typescript-0.5.0.tgz
++-- aurelia-mvvm-plugin-0.1.0.tgz

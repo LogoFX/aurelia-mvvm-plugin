@@ -4,7 +4,7 @@ export async function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
-    .plugin('aurelia-skeleton-plugin-typescript');
+    .plugin('aurelia-mvvm-plugin');
 
   await aurelia.start();
   await aurelia.setRoot('app');

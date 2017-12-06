@@ -1,24 +1,25 @@
 {
-    "name": "aurelia-skeleton-plugin-typescript",
-    "version": "0.5.1",
-    "description": "Create typescript plugins for Aurelia",
+    "name": "aurelia-mvvm-plugin",
+    "version": "0.1.1",
+    "description": "The set of helpfull infrastructures to build MVVM apps with Aurelia framework.",
     "keywords": [
         "aurelia",
         "plugin",
-        "skeleton",
+        "logofx",
+        "mvvm",
         "typescript"
     ],
-    "homepage": "https://github.com/vegarringdal/skeleton-plugin-typescript",
+    "homepage": "https://github.com/LogoFX/aurelia-mvvm-plugin",
     "bugs": {
-        "url": "https://github.com/vegarringdal/skeleton-plugin-typescript/issues"
+        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin/issues"
     },
     "license": "MIT",
-    "author": "Vegar Ringdal (vegar.ringdal@gmail.com)",
+    "author": "David Kossoglyad (david@logoui.co.il)",
     "main": "dist/commonjs/index.js",
     "typings": "dist/commonjs/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/vegarringdal/skeleton-plugin-typescript"
+        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin"
     },
     "scripts": {
         "setup": "node setup",
@@ -29,9 +30,9 @@
         "build-all": "node setup & gulp build & gulp test"
     },
     "devDependencies": {
-        "@types/jest": "^21.1.6",
+        "@types/jest": "^21.1.8",
         "@types/jsdom": "^11.0.4",
-        "@types/node": "^8.0.53",
+        "@types/node": "^8.0.55",
         "aurelia-bootstrapper": "^2.1.1",
         "aurelia-loader-nodejs": "^1.0.1",
         "aurelia-pal-nodejs": "^1.0.0-beta.2.0.0",
@@ -44,13 +45,13 @@
         "gulp-tslint": "^8.1.2",
         "gulp-typescript": "^3.2.3",
         "jest": "^21.2.1",
-        "jsdom": "^11.3.0",
+        "jsdom": "^11.5.1",
         "merge2": "^1.2.0",
         "require-dir": "^0.3.2",
         "run-sequence": "^2.2.0",
-        "ts-jest": "^21.2.2",
+        "ts-jest": "^21.2.4",
         "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
+        "typescript": "^2.6.2",
         "vinyl-paths": "^2.1.0"
     },
     "jspm": {
@@ -69,8 +70,8 @@
         "usedBy": [],
         "build": {
             "resources": [
-                "aurelia-skeleton-plugin-typescript",
-                "aurelia-skeleton-plugin-typescript/index"
+                "aurelia-mvvm-plugin",
+                "aurelia-mvvm-plugin/index"
             ]
         }
     }

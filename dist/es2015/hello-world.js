@@ -3,6 +3,7 @@ define(["require", "exports"], function (require, exports) {
     var HelloWorld = (function () {
         function HelloWorld() {
             this.msg = 'Hello Aurelia!';
+            this.greetings = 'David Kossoglyad';
         }
         return HelloWorld;
     }());

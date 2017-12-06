@@ -1,30 +1,28 @@
 {
-    "name": "aurelia-skeleton-navigation-typescript-fusebox",
+    "name": "aurelia-mvvm-plugin-demo",
     "version": "1.0.0",
-    "description": "A starter kit for building a standard navigation-style app with Aurelia and TypeScript and fusebox.",
+    "description": "A sample app for discovering and testing of aurelia-mvvm-plugin features.",
     "keywords": [
         "aurelia",
-        "navigation",
-        "skeleton",
-        "typescript",
-        "vscode"
+        "plugin",
+        "mvvm"
     ],
-    "homepage": "http://aurelia.io",
+    "homepage": "https://github.com/LogoFX/aurelia-mvvm-plugin",
     "bugs": {
-        "url": "na"
+        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin/issues"
     },
     "license": "MIT",
-    "author": "Vegar Ringdal",
+    "author": "David Kossoglyad",
     "main": "dist/main.js",
     "repository": {
         "type": "git",
-        "url": "na"
+        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin"
     },
     "scripts": {},
     "devDependencies": {
         "@types/bluebird-global": "^3.5.3",
         "aurelia-animator-css": "^1.0.4",
-        "aurelia-binding": "^1.5.0",
+        "aurelia-binding": "^1.6.0",
         "aurelia-bootstrapper": "^2.1.1",
         "aurelia-dependency-injection": "^1.3.2",
         "aurelia-fetch-client": "^1.1.3",
@@ -47,6 +45,6 @@
         "fuse-box-typechecker": "^2.6.2"
     },
     "dependencies": {
-        "aurelia-skeleton-plugin-typescript": "../aurelia-skeleton-plugin-typescript-0.5.1.tgz"
+        "aurelia-mvvm-plugin": "../aurelia-mvvm-plugin-0.1.1.tgz"
     }
 }
