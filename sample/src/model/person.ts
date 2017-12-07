@@ -1,5 +1,5 @@
 import { ValidationRules } from 'aurelia-validation';
-import { IModel, Model } from './../../../src/model/model';
+import { IModel, Model } from '@logofx/aurelia-mvvm-plugin';
 import { IPerson } from './person';
 
 export interface IPerson extends IModel<number> {

@@ -113,7 +113,7 @@ export class WrappingCollection extends Array {
                     // this.splice(innerChanges.index, 1);
                     this.removeCore(innerChanges.index, innerChanges.removed[0]);
                 } else if (innerChanges.removed.length > 1) {
-                    innerChanges.removed.forEach(originalItem => {
+                    innerChanges.removed.forEach((originalItem: any) => {
                         let index = this.findIndex(item => { return item.model === originalItem; });
                         // this.splice(index, 1);
                         this.removeCore(index, originalItem);

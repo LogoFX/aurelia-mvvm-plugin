@@ -1,0 +1,10 @@
+<template>
+  <code>
+    From 'persons' view
+  </code>
+  <div>
+    <div class="row" repeat.for="person of persons">
+      ${person.model.firstName}&nbsp;${person.model.lastName}
+    </div>
+  </div>
+</template>

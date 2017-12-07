@@ -51,8 +51,8 @@ gulp.task('sample-typechecker', function() {
         tsLint: './tslint.json',
         yellowOnLint: true,
         shortenFilenames: true
-    })
-    testWatch.runWatch('./src')
+    });
+    testWatch.runWatch('./src');
     return true;
 });
 
@@ -116,6 +116,8 @@ gulp.task('fuse-sample', function() {
         + aurelia-history-browser 
         + aurelia-templating-router
         + fuse-box-aurelia-loader
+        + aurelia-validation + 
+        @logofx/aurelia-mvvm-plugin
 `)
 
 
