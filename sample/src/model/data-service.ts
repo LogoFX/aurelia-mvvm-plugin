@@ -25,6 +25,14 @@ export class DataService implements IDataService {
       'firstName': 'Vasya',
       'lastName': 'Petrov'
     });
+    this.persons.push(<IPerson>{
+      'firstName': 'David',
+      'lastName': 'Kosso'
+    });
+    this.persons.push(<IPerson>{
+      'firstName': 'John',
+      'lastName': 'Doe'
+    });
   }
 
   public getPerson(id: number): Promise<IPerson> {

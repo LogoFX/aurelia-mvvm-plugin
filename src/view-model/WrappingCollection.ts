@@ -44,6 +44,15 @@ export class WrappingCollection extends Array {
       }
     }
 
+    public get selectedItem(): any {
+
+      if (this.length === 0) {
+        return undefined;
+      }
+
+      return this.find(item => item.isSelected);
+    }
+
     public getSelectedItems: () => any[] = () => {
       return this.filter(item => item.isSelected);
     }
