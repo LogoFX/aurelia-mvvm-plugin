@@ -2,3 +2,8 @@ jspm_packages
 bower_components
 .idea
 .vs
+.vscode
+.git
+node_modules
+
+sample/node_modules

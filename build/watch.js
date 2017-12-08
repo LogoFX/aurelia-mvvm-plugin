@@ -118,7 +118,7 @@ gulp.task('fuse-sample', function() {
         + fuse-box-aurelia-loader
         + aurelia-validation + 
         @logofx/aurelia-mvvm-plugin
-`)
+`);
 
 
     // app bundle
@@ -135,7 +135,7 @@ gulp.task('fuse-sample', function() {
     });
 
     // run
-    return fuse.run()
+    return fuse.run();
 });
 
 
