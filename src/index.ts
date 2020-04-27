@@ -1,15 +1,8 @@
-import { Aurelia, FrameworkConfiguration } from 'aurelia-framework';
-
-// export * from './hello-world';
-
-export * from './core';
-export * from './model';
-export * from './view-model';
+import {FrameworkConfiguration} from 'aurelia-framework';
+import {PLATFORM} from 'aurelia-pal';
 
 export function configure(config: FrameworkConfiguration) {
-  config.globalResources('./hello-world');
-
-  const aurelia = config.container.get(Aurelia);
-
-  aurelia.use.plugin('aurelia-validation');
+  config.globalResources([
+    PLATFORM.moduleName('./elements/hello-world')
+  ]);
 }

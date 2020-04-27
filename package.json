@@ -1,82 +1,111 @@
 {
-    "name": "@logofx/aurelia-mvvm-plugin",
-    "version": "0.1.15",
-    "description": "The set of helpfull infrastructures to build MVVM apps with Aurelia framework.",
-    "keywords": [
-        "aurelia",
-        "plugin",
-        "logofx",
-        "mvvm",
-        "typescript"
+  "name": "logofx-aurelia-mvvm-plugin",
+  "description": "An Aurelia plugin project.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "???",
+    "url": "???"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "aurelia-bootstrapper": "^2.3.2",
+    "aurelia-animator-css": "^1.0.4",
+    "aurelia-cli": "^1.2.3",
+    "aurelia-testing": "^1.0.0",
+    "aurelia-tools": "^2.0.0",
+    "gulp": "^4.0.0",
+    "minimatch": "^3.0.4",
+    "through2": "^3.0.0",
+    "vinyl-fs": "^3.0.3",
+    "promise-polyfill": "^8.1.0",
+    "del": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "requirejs": "^2.3.6",
+    "text": "requirejs/text#latest",
+    "gulp-typescript": "^5.0.0",
+    "gulp-tslint": "^8.1.4",
+    "tslint": "^5.13.0",
+    "typescript": "^3.1.2",
+    "@types/node": "^10.11.6",
+    "gulp-postcss": "^8.0.0",
+    "autoprefixer": "^9.4.8",
+    "cssnano": "^4.1.10",
+    "postcss-url": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "browser-sync": "^2.26.3",
+    "connect-history-api-fallback": "^1.6.0",
+    "debounce": "^1.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-watch": "^5.0.1",
+    "jest": "^24.1.0",
+    "jest-cli": "^24.1.0",
+    "jest-transform-stub": "^2.0.0",
+    "aurelia-loader-nodejs": "^1.0.1",
+    "aurelia-pal-nodejs": "^1.2.0",
+    "ts-jest": "^24.0.0",
+    "@types/jest": "^24.0.9"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "build": "au build-plugin",
+    "start": "au run",
+    "watch": "au build-plugin --watch",
+    "prepare": "npm run build",
+    "pretest": "au lint",
+    "preversion": "au test",
+    "test": "au test"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "main": "dist/commonjs/index.js",
+  "module": "dist/native-modules/index.js",
+  "private": true,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "jest": {
+    "moduleNameMapper": {
+      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding",
+      "^.+\\.css$": "<rootDir>/test/mock-css"
+    },
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/node_modules"
     ],
-    "homepage": "https://github.com/LogoFX/aurelia-mvvm-plugin",
-    "bugs": {
-        "url": "https://github.com/LogoFX/aurelia-mvvm-plugin/issues"
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.(css|less|sass|scss|styl|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
+      "^.+\\.ts$": "ts-jest"
     },
-    "license": "MIT",
-    "author": "David Kossoglyad (david@logoui.co.il)",
-    "main": "dist/commonjs/index.js",
-    "typings": "dist/commonjs/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/LogoFX/aurelia-mvvm-plugin.git"
-    },
-    "scripts": {
-        "setup": "node setup",
-        "run-watch": "gulp watch",
-        "test-watch": "jest --config=jest.config.json --watch",
-        "build": "gulp build",
-        "test": "jest --config=jest.config.json",
-        "build-all": "node setup & gulp build & gulp test"
-    },
-    "devDependencies": {
-        "@types/jest": "^21.1.8",
-        "@types/jsdom": "^11.0.4",
-        "@types/node": "^8.0.55",
-        "aurelia-bootstrapper": "^2.1.1",
-        "aurelia-loader-nodejs": "^1.0.1",
-        "aurelia-pal-nodejs": "^1.0.0-beta.2.0.0",
-        "aurelia-testing": "^1.0.0-beta.4.0.0",
-        "del": "^3.0.0",
-        "gulp": "^3.9.1",
-        "gulp-plumber": "^1.1.0",
-        "gulp-run": "^1.7.1",
-        "gulp-sourcemaps": "^2.6.1",
-        "gulp-tslint": "^8.1.2",
-        "gulp-typescript": "^3.2.3",
-        "jest": "^21.2.1",
-        "jsdom": "^11.5.1",
-        "merge2": "^1.2.0",
-        "require-dir": "^0.3.2",
-        "run-sequence": "^2.2.0",
-        "ts-jest": "^21.2.4",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.2",
-        "vinyl-paths": "^2.1.0"
-    },
-    "jspm": {
-        "registry": "npm",
-        "main": "index",
-        "format": "cjs",
-        "directories": {
-            "dist": "dist/commonjs"
-        },
-        "devDependencies": {}
-    },
-    "dependencies": {
-        "aurelia-framework": "1.1.5",
-        "aurelia-validation": "^1.1.2"
-    },
-    "aurelia": {
-        "usedBy": [],
-        "build": {
-            "resources": [
-                "aurelia-mvvm-plugin",
-                "aurelia-mvvm-plugin/index"
-            ]
-        }
-    },
-    "directories": {
-        "test": "test"
-    }
+    "testRegex": "\\.spec\\.(ts|js)$",
+    "setupFiles": [
+      "<rootDir>/test/jest-pretest.ts"
+    ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}",
+      "!**/*.spec.{js,ts}",
+      "!**/node_modules/**",
+      "!**/test/**"
+    ],
+    "coverageDirectory": "<rootDir>/test/coverage-jest",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ]
+  }
 }

@@ -1,14 +1,11 @@
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
+"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var aurelia_framework_1 = require("aurelia-framework");
-__export(require("./core"));
-__export(require("./model"));
-__export(require("./view-model"));
+var aurelia_pal_1 = require("aurelia-pal");
 function configure(config) {
-    config.globalResources('./hello-world');
-    var aurelia = config.container.get(aurelia_framework_1.Aurelia);
-    aurelia.use.plugin('aurelia-validation');
+    config.globalResources([
+        aurelia_pal_1.PLATFORM.moduleName('./elements/hello-world')
+    ]);
 }
 exports.configure = configure;
+
+//# sourceMappingURL=index.js.map
