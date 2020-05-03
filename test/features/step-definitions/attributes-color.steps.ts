@@ -37,7 +37,7 @@ defineFeature(feature, test => {
       model.color = arg0;
     });
   
-    then(/^I expect to see the (.*) background$/, async (arg0) => {
+    then(/^I expect to see the "(.*)" background$/, async (arg0) => {
       await component.create(bootstrap).then(() => {
       
         const view = <any>component.element;
@@ -65,7 +65,7 @@ defineFeature(feature, test => {
         .inView(`<p color="${arg0}"></p>`);
     });
   
-    then(/^I expect to see (.*) background$/, async (arg0) => {
+    then(/^I expect to see (.*) font color$/, async (arg0) => {
 
       await component.create(bootstrap).then(() => {
       

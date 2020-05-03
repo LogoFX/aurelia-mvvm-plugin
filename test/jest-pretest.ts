@@ -10,7 +10,7 @@ import { setJestCucumberConfiguration } from 'jest-cucumber';
 setJestCucumberConfiguration({
   tagFilter: 'not @excluded',
   scenarioNameTemplate: (vars) => {
-      return ` ${vars.featureTitle} - ${vars.scenarioTitle}}`;
+      return `${vars.featureTitle} - ${vars.scenarioTitle}}`;
   }
 });
 

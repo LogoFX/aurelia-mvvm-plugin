@@ -44,6 +44,7 @@
   },
   "scripts": {
     "build": "au build-plugin",
+    "jest": "jest --verbose --color",
     "start": "au run",
     "watch": "au build-plugin --watch",
     "prepare": "npm run build",
