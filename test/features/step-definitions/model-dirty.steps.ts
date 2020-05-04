@@ -24,7 +24,7 @@ defineFeature(feature, test => {
     });
   });
 
-  test('Making simple editable model dirty results in model which is marked as dirty', ({
+  test(`Trying to make dirty initially created simple editable model doesn't make the model dirty`, ({
     when,
     and,
     then
@@ -37,8 +37,8 @@ defineFeature(feature, test => {
       model.makeDirty();
     });
   
-    then('The simple editable model is marked as dirty', () => {
-      expect(model.isDirty).toBe(true);
+    then(`The simple editable model isn't marked as dirty`, () => {
+      expect(model.isDirty).toBe(false);
     });
   });
 
