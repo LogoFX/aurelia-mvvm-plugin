@@ -37,8 +37,30 @@ defineFeature(feature, test => {
       model.makeDirty();
     });
   
-    then(`The simple editable model isn't marked as dirty`, () => {
+    then(/^The simple editable model is not marked as dirty$/, () => {
       expect(model.isDirty).toBe(false);
+    });
+  });
+
+  test('Making simple editable model dirty during editing lifecycle should mark model as dirty', ({
+    when,
+    and,
+    then
+  }) => {
+    when('The simple editable model is created with valid name', () => {
+      model = new SimpleEditableModel('valid-name');
+    });
+  
+    and('The editing is started for the simple editable model', () => {
+      model.beginEdit();
+    });
+  
+    and('The simple editable model is made dirty', () => {
+      model.makeDirty();
+    });
+  
+    then('The simple editable model is marked as dirty', () => {
+      expect(model.isDirty).toBe(true);
     });
   });
 

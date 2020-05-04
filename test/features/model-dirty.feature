@@ -10,4 +10,10 @@ Scenario: Initially created simple editable model is not marked as dirty
   Scenario: Making simple editable model dirty outside of editing lifecycle should not mark model as dirty
 	  When The simple editable model is created with valid name
 	  And The simple editable model is made dirty
-	  Then The simple editable model isn't marked as dirty
+	  Then The simple editable model is not marked as dirty
+
+Scenario: Making simple editable model dirty during editing lifecycle should mark model as dirty
+	  When The simple editable model is created with valid name
+    And The editing is started for the simple editable model
+	  And The simple editable model is made dirty
+	  Then The simple editable model is marked as dirty
