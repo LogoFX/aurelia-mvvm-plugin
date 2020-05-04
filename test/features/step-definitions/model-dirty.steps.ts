@@ -23,4 +23,24 @@ defineFeature(feature, test => {
       expect(model.isDirty).toBe(false);     
     });
   });
+
+  test('Making simple editable model dirty results in model which is marked as dirty', ({
+    when,
+    and,
+    then
+  }) => {
+    when('The simple editable model is created with valid name', () => {
+      model = new SimpleEditableModel('valid-name');
+    });
+  
+    and('The simple editable model is made dirty', () => {
+      model.makeDirty();
+    });
+  
+    then('The simple editable model is marked as dirty', () => {
+      expect(model.isDirty).toBe(true);
+    });
+  });
+
 })
+
