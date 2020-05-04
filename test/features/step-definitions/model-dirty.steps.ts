@@ -15,11 +15,11 @@ defineFeature(feature, test => {
     then
   }) => {
 
-    when(/^The simple editable model is created with valid name$/, () => {
+    when('The simple editable model is created with valid name', () => {
       model = new SimpleEditableModel('valid-name');
     });   
   
-    then(/^The simple editable model is not marked as dirty$/, () => {
+    then('The simple editable model is not marked as dirty', () => {
       expect(model.isDirty).toBe(false);     
     });
   });
@@ -37,7 +37,7 @@ defineFeature(feature, test => {
       model.makeDirty();
     });
   
-    then(/^The simple editable model is not marked as dirty$/, () => {
+    then('The simple editable model is not marked as dirty', () => {
       expect(model.isDirty).toBe(false);
     });
   });
