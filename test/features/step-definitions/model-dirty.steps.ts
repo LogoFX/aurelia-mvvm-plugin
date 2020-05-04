@@ -24,7 +24,7 @@ defineFeature(feature, test => {
     });
   });
 
-  test(`Trying to make dirty initially created simple editable model doesn't make the model dirty`, ({
+  test(`Making simple editable model dirty outside of editing lifecycle should not mark model as dirty`, ({
     when,
     and,
     then
