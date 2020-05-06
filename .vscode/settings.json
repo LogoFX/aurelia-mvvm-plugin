@@ -42,6 +42,8 @@
     "lifecycle",
     "mvvm",
     "prebuild",
-    "preversion"
+    "predoc",
+    "preversion",
+    "typedoc"
 ],
 }
