@@ -1,31 +1,44 @@
-import { ValidationRules, Rule } from 'aurelia-validation';
+import { Rule } from 'aurelia-validation';
+import { makeString } from '../index';
 
 export interface IModel<T> {
     id: T;
 
-    validationRules: ValidationRules;
-
     rules: Rule<{}, any>[][];
+
+    [x: string]: any;
 }
 
+export interface ICanBeDirty {
+
+    isDirty: boolean;
+
+    makeDirty(): void;
+
+    cleanDirty(): void;
+
+}
+
+export interface IEditableModel<T> extends IModel<T>, ICanBeDirty {
+
+  isNew: boolean;
+
+  beginEdit(): void;
+
+  cancelEdit(): void;
+
+  commitEdit(): void;
+
+}
+
+/**
+ * Model
+ */
 export class Model<T> implements IModel<T> {
 
     public id: T;
 
-    private _validationRules: ValidationRules;
     private _rules: Rule<{}, any>[][];
-
-    public get validationRules(): ValidationRules {
-        return this._validationRules;
-    }
-
-    public set validationRules(value: ValidationRules) {
-        if (value === this._validationRules) {
-            return;
-        }
-
-        this._validationRules = value;
-    }
 
     public get rules(): Rule<{}, any>[][] {
         return this._rules;
@@ -45,48 +58,54 @@ export class Model<T> implements IModel<T> {
 }
 
 /**
- * Checks if the given argument is undefined.
- * @function
+ * EditableModel
  */
-export function isUndefined(obj: any): boolean {
-    return (typeof obj) === 'undefined';
+export class EditableModel<T> extends Model<T> implements IEditableModel<T> {
+
+  private _newGuard: boolean;
+  private _isDirty: boolean = false;
+  private _isNew: boolean = false;
+  private _isEditing: boolean = false;
+  private _originalState: IEditableModel<T>;
+
+  constructor() {
+    super();
+  }
+
+  public get isNew(): boolean {
+    return this._isNew;
+  }
+
+  public get isDirty(): boolean {
+    return this._isDirty;
+  }
+
+  public makeDirty(): void {
+    this._isDirty = (true && this._isEditing);
+  }
+
+  public cleanDirty(): void {
+    this._isDirty = false;
+  }
+
+  public beginEdit(): void {
+    this.cleanDirty();
+    this._isEditing = true;
 }
 
-/**
- * Checks if the given argument is a string.
- * @function
- */
-export function isString(obj: any): boolean {
-    return Object.prototype.toString.call(obj) === '[object String]';
-}
+  public cancelEdit(): void {
+    this.cleanDirty();
+    this._isEditing = false;
+  }
 
-const _hasOwnProperty = Object.prototype.hasOwnProperty;
-export const has = function(obj: any, prop: any) {
-    return _hasOwnProperty.call(obj, prop);
-};
+  public commitEdit(): void {
+    this.cleanDirty();
+    this._isEditing = false;
+  }
 
-export function makeString<T>(item: T, join = ','): string {
-    if (item === null) {
-        return 'COLLECTION_NULL';
-    } else if (isUndefined(item)) {
-        return 'COLLECTION_UNDEFINED';
-    } else if (isString(item)) {
-        return item.toString();
-    } else {
-        let toret = '{';
-        let first = true;
-        for (const prop in item) {
-            if (has(item, prop)) {
-                if (first) {
-                    first = false;
-                } else {
-                    toret = toret + join;
-                }
-                toret = toret + prop + ':' + (<any>item)[prop];
-            }
-        }
-        return toret + '}';
+  protected makeNew(): void {
+    if (!this._newGuard) {
+      this._newGuard = this._isNew = true;
     }
+  }
 }
-
-

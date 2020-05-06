@@ -1,24 +1,39 @@
-node_modules
-jspm_packages
-bower_components
-.idea
+
+# You may want to customise this file depending on your Operating System
+# and the editor that you use.
+#
+# We recommend that you use a Global Gitignore for files that are not related
+# to the project. (https://help.github.com/articles/ignoring-files/#create-a-global-gitignore)
+
+# OS
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
 .DS_STORE
-.vscode
-build/reports
-typings/
-dev/
+Thumbs.db
 
-**/*.tgz
+# Editors
+#
+# Ref: https://github.com/github/gitignore/blob/master/Global
+# Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
+# Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
-sample/node_modules
-sample/jspm_packages
-sample/bower_components
-sample/.idea
-sample/.fusebox
-sample/.DS_STORE
-sample/dist
-sample/build/reports
-sample/coverage
-sample/test/e2e/dist
-sample/typings
-sample/export
+# Dependencies
+node_modules
+
+# Compiled files
+/scripts
+/src/environment.js
+/src/environment.ts
+/dist
+/test/coverage-jest
+/test/coverage-karma
+
+.chrome

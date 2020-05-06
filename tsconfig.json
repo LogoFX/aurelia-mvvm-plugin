@@ -1,37 +1,37 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src/",
-    "outDir": "dist/",
-    "sourceMap": true,
-    "target": "es5",
+    "esModuleInterop": true,
     "module": "amd",
+    "noImplicitAny": false,
     "declaration": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": true,
-    "noUnusedParameters": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitThis": false,
-    "noUnusedLocals": false,
-    "allowUnreachableCode": false,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "sourceMap": true,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
     "moduleResolution": "node",
-    "lib": ["es2017", "dom"]
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "paths": {
+      "resources": [
+        ""
+      ]
+    },
+    "allowJs": false
   },
-  "filesGlob": [
+  "include": [
     "./src/**/*.ts",
-    "./test/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "sample",
-    "dist",
-    "build",
-    "test"
+    "./dev-app/**/*.ts",
+    "./test/**/*.ts",
+    "./types/**/*.d.ts"
   ],
   "atom": {
     "rewriteTsconfig": false
