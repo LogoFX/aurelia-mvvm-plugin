@@ -1,7 +1,7 @@
 {
   "name": "@logofx/aurelia-mvvm-plugin",
   "description": "The set of helpful infrastructures to build MVVM apps with Aurelia framework.",
-  "version": "0.2.0",
+  "version": "0.2.1-alpha.0",
   "keywords": [
     "aurelia",
     "plugin",
