@@ -41,6 +41,7 @@
     "esnext",
     "lifecycle",
     "mvvm",
+    "prebuild",
     "preversion"
 ],
 }

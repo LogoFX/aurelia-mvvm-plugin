@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.4",
+    "@types/rimraf": "^3.0.0",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-cli": "^1.3.1",
@@ -31,8 +32,11 @@
     "aurelia-testing": "^1.0.0",
     "aurelia-validation": "^2.0.0-rc1",
     "browser-sync": "^2.26.7",
+    "concurrently": "^5.2.0",
     "connect-history-api-fallback": "^1.6.0",
     "conventional-changelog": "^3.1.18",
+    "conventional-changelog-cli": "^2.0.31",
+    "cross-env": "^7.0.2",
     "debounce": "^1.2.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -50,14 +54,18 @@
     "minimatch": "^3.0.4",
     "promise-polyfill": "^8.1.3",
     "requirejs": "^2.3.6",
+    "rimraf": "^3.0.2",
+    "standard-version": "^7.1.0",
     "text": "requirejs/text#latest",
     "through2": "^3.0.1",
     "ts-jest": "^25.4.0",
     "tslint": "^6.1.2",
+    "typedoc": "^0.17.6",
     "typescript": "^3.8.3",
     "vinyl-fs": "^3.0.3"
   },
   "scripts": {
+    "prebuild": "cross-env rimraf dist",
     "build": "au build-plugin",
     "jest": "jest --verbose --color",
     "start": "au run",
@@ -66,9 +74,8 @@
     "pretest": "au lint",
     "preversion": "au test",
     "test": "au test",
-    "changelog": "cross-env conventional-changelog -p angular -i doc/CHANGELOG.md -s",
-    "bump-version": "npm --no-git-tag-version version",
-    "prepare-release": "cross-env npm run test && npm run changelog && npm run build"
+    "precut-release": "cross-env npm run test",
+    "cut-release": "cross-env standard-version -t \"\" -i doc/CHANGELOG.md && npm run build"
   },
   "engines": {
     "node": ">=8.9.0"
