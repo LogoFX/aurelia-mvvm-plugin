@@ -1,11 +1,17 @@
 import { SimpleEditableModel } from '../objects/simple-editable-model';
-import { defineFeature, loadFeature } from "jest-cucumber";
+import { defineFeature, loadFeature, DefineStepFunction } from "jest-cucumber";
 
 const feature = loadFeature('./test/features/model-dirty.feature');
 
 defineFeature(feature, test => {
 
   let model : SimpleEditableModel;  
+
+  const andTheSimpleEditableModelIsMadeDirty = (and: DefineStepFunction) => {
+    and('The editing is started for the simple editable model', () => {
+      model.beginEdit();
+    });
+  };
 
   test('Initially created simple editable model is not marked as dirty', 
   ({
@@ -64,5 +70,6 @@ defineFeature(feature, test => {
     });
   });
 
+  
 })
 
