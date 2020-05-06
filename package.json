@@ -1,7 +1,7 @@
 {
   "name": "@logofx/aurelia-mvvm-plugin",
   "description": "The set of helpful infrastructures to build MVVM apps with Aurelia framework.",
-  "version": "0.2.1-alpha.1",
+  "version": "0.2.1",
   "keywords": [
     "aurelia",
     "plugin",
@@ -36,6 +36,7 @@
     "connect-history-api-fallback": "^1.6.0",
     "conventional-changelog": "^3.1.18",
     "conventional-changelog-cli": "^2.0.31",
+    "copyfiles": "^2.2.0",
     "cross-env": "^7.0.2",
     "debounce": "^1.2.0",
     "del": "^5.1.0",
@@ -74,8 +75,8 @@
     "pretest": "au lint",
     "preversion": "au test",
     "test": "au test",
-    "predoc": "cross-env rimraf doc/api.json && rimraf dist/doc-temp && tsc --project tsconfig.build.json --outFile dist/doc-temp/aurelia-testing.js && node doc/shape-defs && copyfiles tsconfig.json dist/doc-temp",
-    "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name aurelia-testing-docs dist/doc-temp/",
+    "predoc": "cross-env rimraf doc/api.json && rimraf dist/doc-temp && tsc --project tsconfig.json --outFile dist/doc-temp/aurelia-testing.js && node doc/shape-defs && copyfiles tsconfig.json dist/doc-temp",
+    "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name aurelia-mvvm-docs dist/doc-temp/",
     "postdoc": "cross-env node doc/shape-doc && rimraf dist/doc-temp",
     "changelog": "cross-env conventional-changelog -p angular -i doc/CHANGELOG.md -s",
     "precut-release": "npm run test && npm run build && npm run doc",
