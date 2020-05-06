@@ -1,8 +1,8 @@
-import { IModel, ObjectViewModel, IObjectWrapper } from "logofx";
+import { IModel } from "../model/model";
 import { ValidationController, ValidationControllerFactory } from "aurelia-validation";
 import { Container, bindable } from "aurelia-framework";
-import { inherits, isNullOrUndefined } from "util";
-import { isClassOrTypeElement } from "typescript";
+import { IObjectWrapper } from "./object-view-model";
+
 
 /**
  * ScreenObjectViewModel

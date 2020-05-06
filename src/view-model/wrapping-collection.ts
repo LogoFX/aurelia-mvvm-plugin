@@ -1,7 +1,7 @@
 import { transient, View } from "aurelia-framework";
-import { IModel, IEditableModel } from 'logofx/model';
-import { IObjectViewModel } from 'logofx';
-import * as Core from 'logofx/core';
+import { IModel, IEditableModel } from '../model/model';
+import { IObjectViewModel } from '../view-model/object-view-model';
+import * as Core from '../core';
 
 /**
  * Represents the collection, which is automatically observing source collection and wrapping items

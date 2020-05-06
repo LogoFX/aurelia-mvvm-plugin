@@ -1,5 +1,4 @@
-import { IViewModelCreatorService } from './../view-model/view-model-creator-service';
-import { IObjectViewModel } from 'logofx';
+import { IObjectViewModel } from '../view-model/object-view-model';
 import { DialogController } from 'aurelia-dialog';
 /**
  * Represents the Dialog View

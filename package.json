@@ -1,12 +1,24 @@
 {
-  "name": "logofx-aurelia-mvvm-plugin",
-  "description": "An Aurelia plugin project.",
-  "version": "0.1.0",
-  "repository": {
-    "type": "???",
-    "url": "???"
+  "name": "@logofx/aurelia-mvvm-plugin",
+  "description": "The set of helpful infrastructures to build MVVM apps with Aurelia framework.",
+  "version": "0.2.0",
+  "keywords": [
+    "aurelia",
+    "plugin",
+    "logofx",
+    "mvvm",
+    "typescript"
+  ],
+  "homepage": "https://github.com/LogoFX/aurelia-mvvm-plugin",
+  "bugs": {
+    "url": "https://github.com/LogoFX/aurelia-mvvm-plugin/issues"
   },
-  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LogoFX/aurelia-mvvm-plugin.git"
+  },
+  "license": "MIT",
+  "author": "David Kossoglyad (david@logoui.co.il)",
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.4",
@@ -20,6 +32,7 @@
     "aurelia-validation": "^2.0.0-rc1",
     "browser-sync": "^2.26.7",
     "connect-history-api-fallback": "^1.6.0",
+    "conventional-changelog": "^3.1.18",
     "debounce": "^1.2.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -52,14 +65,17 @@
     "prepare": "npm run build",
     "pretest": "au lint",
     "preversion": "au test",
-    "test": "au test"
+    "test": "au test",
+    "changelog": "cross-env conventional-changelog -p angular -i doc/CHANGELOG.md -s",
+    "bump-version": "npm --no-git-tag-version version",
+    "prepare-release": "cross-env npm run test && npm run changelog && npm run build"
   },
   "engines": {
     "node": ">=8.9.0"
   },
   "main": "dist/commonjs/index.js",
   "module": "dist/native-modules/index.js",
-  "private": true,
+  "private": false,
   "files": [
     "dist",
     "src"

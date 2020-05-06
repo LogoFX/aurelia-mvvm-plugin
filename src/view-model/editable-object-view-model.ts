@@ -1,5 +1,5 @@
 // tslint:disable: member-ordering
-import { IEditableModel } from 'logofx/model';
+import { IEditableModel } from '../model/model';
 import { ObjectViewModel } from './object-view-model';
 
 /**

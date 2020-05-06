@@ -1,4 +1,4 @@
-import { EditableModel } from './../../../src/logofx/model/model';
+import { EditableModel } from './../../../src/model/model';
 
 export class SimpleEditableModel extends EditableModel<string> {
 

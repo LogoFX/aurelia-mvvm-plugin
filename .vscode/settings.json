@@ -39,6 +39,8 @@
     "Elon",
     "asynciterable",
     "esnext",
-    "lifecycle"
+    "lifecycle",
+    "mvvm",
+    "preversion"
 ],
 }

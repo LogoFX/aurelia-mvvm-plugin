@@ -1,15 +1,15 @@
 import { defineFeature, loadFeature } from "jest-cucumber";
-import { arrays } from 'logofx/core/collections';
+import { arrays } from '../../../src/core/collections';
 
 const feature = loadFeature('./test/features/collections-array.feature');
 
 defineFeature(feature, test => {
 
   test('The IndexOf method should return the right position', ({
-    given,
-    when,
-    then
-  }) => {
+          given,
+          when,
+          then
+        }) => {
 
     let _testArray: string[] = [];
     let _item: string;

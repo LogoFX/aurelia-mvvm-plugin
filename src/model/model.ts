@@ -1,5 +1,5 @@
 import { Rule } from 'aurelia-validation';
-import { makeString } from 'logofx';
+import { makeString } from '../index';
 
 export interface IModel<T> {
     id: T;

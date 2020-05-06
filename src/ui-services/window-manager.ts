@@ -1,5 +1,5 @@
 import { DialogService, DialogCloseResult, DialogOpenPromise } from 'aurelia-dialog';
-import { IObjectViewModel } from 'logofx';
+import { IObjectViewModel } from '../view-model/object-view-model';
 import { Dialog } from './dialog';
 import { autoinject } from 'aurelia-framework';
 
