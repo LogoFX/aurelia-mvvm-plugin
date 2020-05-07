@@ -2,7 +2,13 @@ export function clear<T>(array: T[]): T[] {
   array.splice(0, array.length);
   return array;
 }
-
+/**
+ * Clones a source using JSON
+ *
+ * @export
+ * @param {*} source
+ * @returns {*}
+ */
 export function jsonClone(source: any): any {
   const seen = [];
 

@@ -59,6 +59,7 @@
     "standard-version": "^7.1.0",
     "text": "requirejs/text#latest",
     "through2": "^3.0.1",
+    "ts-expect": "^1.1.0",
     "ts-jest": "^25.5.0",
     "tslint": "^6.1.2",
     "typedoc": "^0.17.6",
