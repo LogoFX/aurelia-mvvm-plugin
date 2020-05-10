@@ -1,4 +1,9 @@
-import { FrameworkConfiguration, PLATFORM } from 'aurelia-framework';
+/** 
+ * The LogoFx module.
+ * 
+ * @moduledefinition LogoFX
+*/
+
 import * as __utils__ from './utils';
 
 export { __utils__ as utils };
@@ -10,6 +15,7 @@ export * from './ui-services';
 /**
  * Checks if the given argument is undefined.
  *
+ * @module LogoFX
  */
 export function isUndefined(obj: any): boolean {
   return (typeof obj) === 'undefined';
@@ -17,6 +23,8 @@ export function isUndefined(obj: any): boolean {
 
 /**
  * Checks if the given argument is a string.
+ *
+ * @module LogoFX
  */
 export function isString(obj: any): boolean {
   return Object.prototype.toString.call(obj) === '[object String]';

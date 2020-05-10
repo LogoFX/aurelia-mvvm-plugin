@@ -1,3 +1,8 @@
+/**
+ * @moduledefinition The Core Collections
+ */
+
+/** Dummy */
 import * as util from './collection-util';
 import * as arrays from './arrays';
 
@@ -9,6 +14,8 @@ export interface IDictionaryPair<K, V> {
 
 /**
  * Represents the dictionary collection.
+ * 
+ * 
  */
 export class Dictionary<K, V> {
 

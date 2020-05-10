@@ -1,4 +1,8 @@
-const _hasOwnProperty = Object.prototype.hasOwnProperty;
+
+ /** 
+ * @internal 
+ */
+ const _hasOwnProperty = Object.prototype.hasOwnProperty;
 export const has = (obj: any, prop: any) => {
     return _hasOwnProperty.call(obj, prop);
 };

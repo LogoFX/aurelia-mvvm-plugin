@@ -1,3 +1,6 @@
+
+
+/** Dummy */
 // tslint:disable: no-redundant-jsdoc
 import * as util from './collection-util';
 
@@ -10,6 +13,8 @@ import * as util from './collection-util';
  * check equality between 2 elements.
  * @return {number} the position of the first occurrence of the specified element
  * within the specified array, or -1 if not found.
+ * 
+ * 
  */
 export function indexOf<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): number {
     const equalityFunction = equalsFunction || util.defaultEquals;

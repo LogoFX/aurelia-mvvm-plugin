@@ -1,3 +1,7 @@
+/** 
+ * @moduledefinition Collections
+*/
+
 import * as _arrays from './arrays';
 export let arrays = _arrays;
 // export { default as Bag } from './Bag';

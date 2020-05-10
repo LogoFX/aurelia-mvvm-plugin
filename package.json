@@ -20,6 +20,8 @@
   "license": "MIT",
   "author": "David Kossoglyad (david@logoui.co.il)",
   "devDependencies": {
+    "@convergencelabs/typedoc-plugin-custom-modules": "^0.3.0",
+    "@convergencelabs/typedoc-theme": "^1.2.0",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
     "@types/rimraf": "^3.0.0",
@@ -76,7 +78,7 @@
     "pretest": "au lint",
     "preversion": "au test",
     "test": "au test",
-    "html-doc": "cross-env typedoc --mode modules --hideGenerator --ignoreCompilerErrors --excludePrivate --exclude '**/*+(index|.spec|.e2e).ts' --excludeNotExported --includeVersion --out doc/html-doc src",
+    "html-doc": "cross-env rimraf doc/html-doc && typedoc --mode modules --hideGenerator --ignoreCompilerErrors --excludePrivate --excludeExternals --exclude '**/*+(index|.spec|.e2e).ts' --excludeNotExported --includeVersion --out doc/html-doc --theme node_modules/@convergencelabs/typedoc-theme/bin/default src",
     "predoc": "cross-env rimraf doc/api.json && rimraf dist/doc-temp && tsc --project tsconfig.json --outFile dist/doc-temp/aurelia-mvvm.js && node doc/shape-defs && copyfiles tsconfig.json dist/doc-temp",
     "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name aurelia-mvvm-docs dist/doc-temp/",
     "postdoc": "cross-env node doc/shape-doc && rimraf dist/doc-temp",
