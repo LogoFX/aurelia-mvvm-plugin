@@ -41,12 +41,17 @@
     "convergencelabs",
     "copyfiles",
     "esnext",
+    "lcov",
     "lifecycle",
     "moduledefinition",
     "mvvm",
     "prebuild",
     "predoc",
     "preversion",
-    "typedoc"
+    "styl",
+    "typedoc",
+    "webm",
+    "webp",
+    "woff"
 ],
 }
