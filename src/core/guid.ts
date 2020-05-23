@@ -1,29 +1,16 @@
 /**
- * 
- *  @moduledefinition Core
- * 
- */
-
-
-
-/**
  * This class represents a globally unique identifier, as described by IETF RFC 4122.
- * 
- * 
+ *
  */
 export class Guid {
 
   /**
    * Gets the regular expression, which may be used to validate string representation of the GUID.
-   * 
-   * 
    */
   public static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
 
   /**
    *  Gets the empty ("zero") GUID string.
-   * 
-   * 
    */
   public static EMPTY: string = "00000000-0000-0000-0000-000000000000";
 
@@ -74,7 +61,7 @@ export class Guid {
   }
 
   /**
-   * Returns a string representing newaly generated GUID value.
+   * Returns a string representing newly generated GUID value.
    */
   // tslint:disable-next-line: function-name
   public static raw(): string {

@@ -7,6 +7,9 @@ export interface ILinkedListNode<T> {
     next: ILinkedListNode<T> | null;
 }
 
+/**
+ * Represents the Linked List collection
+ */
 export class LinkedList<T> {
 
     /**
@@ -35,7 +38,7 @@ export class LinkedList<T> {
      * which together represent a sequence.
      * @constructor
      */
-    constructor() { 
+    constructor() {
       //
     }
 
@@ -47,7 +50,7 @@ export class LinkedList<T> {
      * @return {boolean} true if the element was added or false if the index is invalid
      * or if the element is undefined.
      */
-    add(item: T, index?: number): boolean {
+    public add(item: T, index?: number): boolean {
         if (util.isUndefined(index)) {
             index = this.nElements;
         }
@@ -84,7 +87,7 @@ export class LinkedList<T> {
      * @return {*} the first element of the list or undefined if the list is
      * empty.
      */
-    first(): T | undefined {
+    public first(): T | undefined {
 
         if (this.firstNode !== null) {
             return this.firstNode.element;
@@ -97,7 +100,7 @@ export class LinkedList<T> {
      * @return {*} the last element in the list or undefined if the list is
      * empty.
      */
-    last(): T | undefined {
+    public last(): T | undefined {
 
         if (this.lastNode !== null) {
             return this.lastNode.element;
@@ -111,7 +114,7 @@ export class LinkedList<T> {
      * @return {*} the element at the given index or undefined if the index is
      * out of bounds.
      */
-    elementAtIndex(index: number): T | undefined {
+    public elementAtIndex(index: number): T | undefined {
 
         const node = this.nodeAtIndex(index);
         if (node === null) {
@@ -140,7 +143,7 @@ export class LinkedList<T> {
      * of the specified element, or -1 if this list does not contain the
      * element.
      */
-    indexOf(item: T, equalsFunction?: util.IEqualsFunction<T>): number {
+    public indexOf(item: T, equalsFunction?: util.IEqualsFunction<T>): number {
 
         const equalsF = equalsFunction || util.defaultEquals;
         if (util.isUndefined(item)) {
@@ -157,7 +160,6 @@ export class LinkedList<T> {
         }
         return -1;
     }
-
 
     /**
      * Returns true if this list contains the specified element.
@@ -177,7 +179,7 @@ export class LinkedList<T> {
      * @return {boolean} true if this list contains the specified element, false
      * otherwise.
      */
-    contains(item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
+    public contains(item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
         return (this.indexOf(item, equalsFunction) >= 0);
     }
 
@@ -196,7 +198,7 @@ export class LinkedList<T> {
      * @param {Object} item element to be removed from this list, if present.
      * @return {boolean} true if the list contained the specified element.
      */
-    remove(item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
+    public remove(item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
         const equalsF = equalsFunction || util.defaultEquals;
         if (this.nElements < 1 || util.isUndefined(item)) {
             return false;
@@ -232,7 +234,7 @@ export class LinkedList<T> {
     /**
      * Removes all of the elements from this list.
      */
-    clear(): void {
+    public clear(): void {
         this.firstNode = null;
         this.lastNode = null;
         this.nElements = 0;
@@ -248,7 +250,7 @@ export class LinkedList<T> {
      * the === operator is used to check equality between elements.
      * @return {boolean} true if this list is equal to the given list.
      */
-    equals(other: any, equalsFunction?: util.IEqualsFunction<T>): boolean {
+    public equals(other: any, equalsFunction?: util.IEqualsFunction<T>): boolean {
         const eqF = equalsFunction || util.defaultEquals;
         if (!(other instanceof LinkedList)) {
             return false;
@@ -260,25 +262,11 @@ export class LinkedList<T> {
     }
 
     /**
-     * @private
-     */
-    private equalsAux(n1: ILinkedListNode<T> | null, n2: ILinkedListNode<T> | null, eqF: util.IEqualsFunction<T>): boolean {
-        while (n1 !== null && n2 !== null) {
-            if (!eqF(n1.element, n2.element)) {
-                return false;
-            }
-            n1 = n1.next;
-            n2 = n2.next;
-        }
-        return true;
-    }
-
-    /**
      * Removes the element at the specified position in this list.
      * @param {number} index given index.
      * @return {*} removed element or undefined if the index is out of bounds.
      */
-    removeElementAtIndex(index: number): T | undefined {
+    public removeElementAtIndex(index: number): T | undefined {
         if (index < 0 || index >= this.nElements || this.firstNode === null || this.lastNode === null) {
             return undefined;
         }
@@ -312,7 +300,7 @@ export class LinkedList<T> {
      * invoked with one argument: the element value, to break the iteration you can
      * optionally return false.
      */
-    forEach(callback: util.ILoopFunction<T>): void {
+    public forEach(callback: util.ILoopFunction<T>): void {
         let currentNode = this.firstNode;
         while (currentNode !== null) {
             if (callback(currentNode.element) === false) {
@@ -326,7 +314,7 @@ export class LinkedList<T> {
      * Reverses the order of the elements in this linked list (makes the last
      * element first, and the first element last).
      */
-    reverse(): void {
+    public reverse(): void {
         let previous: ILinkedListNode<T> | null = null;
         let current: ILinkedListNode<T> | null = this.firstNode;
         let temp: ILinkedListNode<T> | null = null;
@@ -347,7 +335,7 @@ export class LinkedList<T> {
      * @return {Array.<*>} an array containing all of the elements in this list,
      * in proper sequence.
      */
-    toArray(): T[] {
+    public toArray(): T[] {
         const array: T[] = [];
         let currentNode: ILinkedListNode<T> | null = this.firstNode;
         while (currentNode !== null) {
@@ -361,7 +349,7 @@ export class LinkedList<T> {
      * Returns the number of elements in this list.
      * @return {number} the number of elements in this list.
      */
-    size(): number {
+    public size(): number {
         return this.nElements;
     }
 
@@ -369,12 +357,26 @@ export class LinkedList<T> {
      * Returns true if this list contains no elements.
      * @return {boolean} true if this list contains no elements.
      */
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.nElements <= 0;
     }
 
-    toString(): string {
+    public toString(): string {
         return arrays.toString(this.toArray());
+    }
+
+    /**
+     * @private
+     */
+    private equalsAux(n1: ILinkedListNode<T> | null, n2: ILinkedListNode<T> | null, eqF: util.IEqualsFunction<T>): boolean {
+        while (n1 !== null && n2 !== null) {
+            if (!eqF(n1.element, n2.element)) {
+                return false;
+            }
+            n1 = n1.next;
+            n2 = n2.next;
+        }
+        return true;
     }
 
     /**

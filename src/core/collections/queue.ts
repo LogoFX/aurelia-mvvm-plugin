@@ -1,6 +1,9 @@
 import * as util from './collection-util';
 import { LinkedList } from './linked-list';
 
+/**
+ * Represents the Queue collection.
+ */
 export class Queue<T> {
 
     /**
@@ -21,13 +24,12 @@ export class Queue<T> {
         this.list = new LinkedList<T>();
     }
 
-
     /**
      * Inserts the specified element into the end of this queue.
      * @param {Object} elem the element to insert.
      * @return {boolean} true if the element was inserted, or false if it is undefined.
      */
-    enqueue(elem: T): boolean {
+    public enqueue(elem: T): boolean {
         return this.list.add(elem);
     }
     /**
@@ -35,14 +37,14 @@ export class Queue<T> {
      * @param {Object} elem the element to insert.
      * @return {boolean} true if the element was inserted, or false if it is undefined.
      */
-    add(elem: T): boolean {
+    public add(elem: T): boolean {
         return this.list.add(elem);
     }
     /**
      * Retrieves and removes the head of this queue.
      * @return {*} the head of this queue, or undefined if this queue is empty.
      */
-    dequeue(): T | undefined {
+    public dequeue(): T | undefined {
         if (this.list.size() !== 0) {
             const el = this.list.first();
             this.list.removeElementAtIndex(0);
@@ -54,7 +56,7 @@ export class Queue<T> {
      * Retrieves, but does not remove, the head of this queue.
      * @return {*} the head of this queue, or undefined if this queue is empty.
      */
-    peek(): T | undefined {
+    public peek(): T | undefined {
 
         if (this.list.size() !== 0) {
             return this.list.first();
@@ -66,7 +68,7 @@ export class Queue<T> {
      * Returns the number of elements in this queue.
      * @return {number} the number of elements in this queue.
      */
-    size(): number {
+    public size(): number {
         return this.list.size();
     }
 
@@ -88,7 +90,7 @@ export class Queue<T> {
      * @return {boolean} true if this queue contains the specified element,
      * false otherwise.
      */
-    contains(elem: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
+    public contains(elem: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
         return this.list.contains(elem, equalsFunction);
     }
 
@@ -97,14 +99,14 @@ export class Queue<T> {
      * @return {boolean} true if and only if this queue contains no items; false
      * otherwise.
      */
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.list.size() <= 0;
     }
 
     /**
      * Removes all of the elements from this queue.
      */
-    clear(): void {
+    public clear(): void {
         this.list.clear();
     }
 
@@ -115,7 +117,7 @@ export class Queue<T> {
      * invoked with one argument: the element value, to break the iteration you can
      * optionally return false.
      */
-    forEach(callback: util.ILoopFunction<T>) {
+    public forEach(callback: util.ILoopFunction<T>): void {
         this.list.forEach(callback);
     }
 

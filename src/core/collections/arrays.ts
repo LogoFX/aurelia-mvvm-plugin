@@ -1,5 +1,4 @@
 
-
 /** Dummy */
 // tslint:disable: no-redundant-jsdoc
 import * as util from './collection-util';
@@ -13,8 +12,8 @@ import * as util from './collection-util';
  * check equality between 2 elements.
  * @return {number} the position of the first occurrence of the specified element
  * within the specified array, or -1 if not found.
- * 
- * 
+ *
+ *
  */
 export function indexOf<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): number {
     const equalityFunction = equalsFunction || util.defaultEquals;
@@ -61,7 +60,7 @@ export function contains<T>(array: T[], item: T, equalsFunction?: util.IEqualsFu
 }
 
 /**
- * Removes the first ocurrence of the specified element from the specified array.
+ * Removes the first occurrence of the specified element from the specified array.
  * @param {*} array the array in which to search element.
  * @param {Object} item the element to search.
  * @param {function(Object,Object):boolean=} equalsFunction optional function to
@@ -107,7 +106,7 @@ export function frequency<T>(array: T[], item: T, equalsFunction?: util.IEqualsF
  * @param {Array} array1 one array to be tested for equality.
  * @param {Array} array2 the other array to be tested for equality.
  * @param {function(Object,Object):boolean=} equalsFunction optional function used to
- * check equality between elemements in the arrays.
+ * check equality between elements in the arrays.
  * @return {boolean} true if the two arrays are equal
  */
 export function equals<T>(array1: T[], array2: T[], equalsFunction?: util.IEqualsFunction<T>): boolean {

@@ -14,8 +14,8 @@ export interface IDictionaryPair<K, V> {
 
 /**
  * Represents the dictionary collection.
- * 
- * 
+ *
+ *
  */
 export class Dictionary<K, V> {
 
@@ -34,7 +34,6 @@ export class Dictionary<K, V> {
      * Function used to convert keys to strings.
      */
     protected toStr: (key: K) => string;
-
 
     /**
      * Creates an empty dictionary.
@@ -60,7 +59,6 @@ export class Dictionary<K, V> {
         this.toStr = toStrFunction || util.defaultToString;
     }
 
-
     /**
      * Returns the value to which this dictionary maps the specified key.
      * Returns undefined if this dictionary contains no mapping for this key.
@@ -68,14 +66,13 @@ export class Dictionary<K, V> {
      * @return {*} the value to which this dictionary maps the specified key or
      * undefined if the map contains no mapping for this key.
      */
-    getValue(key: K): V | undefined {
-        const pair: IDictionaryPair<K, V> = this.table['$' + this.toStr(key)];
+    public getValue(key: K): V | undefined {
+        const pair: IDictionaryPair<K, V> = this.table[`$${this.toStr(key)}`];
         if (util.isUndefined(pair)) {
             return undefined;
         }
         return pair.value;
     }
-
 
     /**
      * Associates the specified value with the specified key in this dictionary.
@@ -87,14 +84,14 @@ export class Dictionary<K, V> {
      * @return {*} previous value associated with the specified key, or undefined if
      * there was no mapping for the key or if the key/value are undefined.
      */
-    setValue(key: K, value: V): V | undefined {
+    public setValue(key: K, value: V): V | undefined {
 
         if (util.isUndefined(key) || util.isUndefined(value)) {
             return undefined;
         }
 
         let ret: V | undefined;
-        const k = '$' + this.toStr(key);
+        const k = `$${this.toStr(key)}`;
         const previousElement: IDictionaryPair<K, V> = this.table[k];
         if (util.isUndefined(previousElement)) {
             this.nElements++;
@@ -116,8 +113,8 @@ export class Dictionary<K, V> {
      * @return {*} previous value associated with specified key, or undefined if
      * there was no mapping for key.
      */
-    remove(key: K): V | undefined {
-        const k = '$' + this.toStr(key);
+    public remove(key: K): V | undefined {
+        const k = `$${this.toStr(key)}`;
         const previousElement: IDictionaryPair<K, V> = this.table[k];
         if (!util.isUndefined(previousElement)) {
             delete this.table[k];
@@ -131,7 +128,7 @@ export class Dictionary<K, V> {
      * Returns an array containing all of the keys in this dictionary.
      * @return {Array} an array containing all of the keys in this dictionary.
      */
-    keys(): K[] {
+    public keys(): K[] {
         const array: K[] = [];
         for (const name in this.table) {
             if (util.has(this.table, name)) {
@@ -146,7 +143,7 @@ export class Dictionary<K, V> {
      * Returns an array containing all of the values in this dictionary.
      * @return {Array} an array containing all of the values in this dictionary.
      */
-    values(): V[] {
+    public values(): V[] {
         const array: V[] = [];
         for (const name in this.table) {
             if (util.has(this.table, name)) {
@@ -164,7 +161,7 @@ export class Dictionary<K, V> {
      * invoked with two arguments: key and value. To break the iteration you can
      * optionally return false.
      */
-    forEach(callback: (key: K, value: V) => any): void {
+    public forEach(callback: (key: K, value: V) => any): void {
         for (const name in this.table) {
             if (util.has(this.table, name)) {
                 const pair: IDictionaryPair<K, V> = this.table[name];
@@ -183,7 +180,7 @@ export class Dictionary<K, V> {
      * @return {boolean} true if this dictionary contains a mapping for the
      * specified key.
      */
-    containsKey(key: K): boolean {
+    public containsKey(key: K): boolean {
         return !util.isUndefined(this.getValue(key));
     }
 
@@ -191,7 +188,7 @@ export class Dictionary<K, V> {
      * Removes all mappings from this dictionary.
      * @this {collections.Dictionary}
      */
-    clear() {
+    public clear(): void {
         this.table = {};
         this.nElements = 0;
     }
@@ -200,7 +197,7 @@ export class Dictionary<K, V> {
      * Returns the number of keys in this dictionary.
      * @return {number} the number of key-value mappings in this dictionary.
      */
-    size(): number {
+    public size(): number {
         return this.nElements;
     }
 
@@ -208,15 +205,15 @@ export class Dictionary<K, V> {
      * Returns true if this dictionary contains no mappings.
      * @return {boolean} true if this dictionary contains no mappings.
      */
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.nElements <= 0;
     }
 
-    toString(): string {
+    public toString(): string {
         let toret = '{';
         this.forEach((k, v) => {
             toret += `\n\t${k} : ${v}`;
         });
-        return toret + '\n}';
+        return `${toret}\\n}`;
     }
 } // End of dictionary

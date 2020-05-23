@@ -5,6 +5,15 @@ import { Dictionary } from "./dictionary";
  */
 export class IndexedDictionary<TKey, TValue> extends Dictionary<TKey, TValue> {
 
+    protected internalKeys: Set<TKey> = new Set<TKey>();
+
+    private _replaceDuplicateKeys: boolean;
+    private _throwErrorOnInvalidRemove: boolean;
+
+    constructor () {
+      super();
+    }
+
     public get replaceDuplicateKeys(): boolean {
         return this._replaceDuplicateKeys;
     }
@@ -19,15 +28,6 @@ export class IndexedDictionary<TKey, TValue> extends Dictionary<TKey, TValue> {
 
     public set throwErrorOnInvalidRemove(value: boolean) {
         this._throwErrorOnInvalidRemove = value;
-    }
-
-    protected internalKeys: Set<TKey> = new Set<TKey>();
-
-    private _replaceDuplicateKeys: boolean;
-    private _throwErrorOnInvalidRemove: boolean;
-
-    constructor () {
-        super();
     }
 
     /// <summary>
