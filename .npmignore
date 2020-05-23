@@ -5,5 +5,5 @@ bower_components
 .vscode
 .git
 node_modules
-
-sample/node_modules
+dev-app
+src
