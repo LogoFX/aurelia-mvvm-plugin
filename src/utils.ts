@@ -1,5 +1,6 @@
 export function clear<T>(array: T[]): T[] {
   array.splice(0, array.length);
+
   return array;
 }
 /**
@@ -10,11 +11,12 @@ export function clear<T>(array: T[]): T[] {
  * @returns {*}
  */
 export function jsonClone(source: any): any {
-  const seen = [];
 
-  const json = JSON.stringify(source, function(key, val) {
+  const seen: any = [];
 
-    if (val != null && typeof val == "object") {
+  const json: string = JSON.stringify(source, (_: string, val: any): void => {
+
+    if (val != null && typeof val === 'object') {
         if (seen.indexOf(val) >= 0) {
             return;
         }
@@ -25,7 +27,8 @@ export function jsonClone(source: any): any {
 
   });
 
-  const temp = JSON.parse(json);
+  // tslint:disable-next-line: no-unnecessary-local-variable
+  const temp: any = JSON.parse(json);
 
   return temp;
 }
@@ -35,24 +38,27 @@ export function spreadClone(source: any): any {
 }
 
 export function deepClone(obj: any): any {
-    let copy;
+
+    let copy: any;
 
     // Handle the 3 simple types, and null or undefined
-    if (null == obj || "object" !== typeof obj) return obj;
+    if (obj === null ||  typeof obj !== 'object') { return obj; }
 
     // Handle Date
     if (obj instanceof Date) {
         copy = new Date();
         copy.setTime(obj.getTime());
+
         return copy;
     }
 
     // Handle Array
     if (obj instanceof Array) {
         copy = [];
-        for (let i = 0, len = obj.length; i < len; i++) {
+        for (let i: number = 0, len: number = obj.length; i < len; i++) {
             copy[i] = deepClone(obj[i]);
         }
+
         return copy;
     }
 
@@ -60,11 +66,13 @@ export function deepClone(obj: any): any {
     if (obj instanceof Object) {
         copy = {};
         for (const attr in obj) {
-            if (obj.hasOwnProperty(attr)) copy[attr] = deepClone(obj[attr]);
+            if (obj.hasOwnProperty(attr)) {
+              copy[attr] = deepClone(obj[attr]);
+            }
         }
+
         return copy;
     }
 
-    throw new Error("Unable to copy obj! Its type isn't supported.");
+    throw new Error('Unable to copy obj! Its type isn\'t supported.');
 }
-

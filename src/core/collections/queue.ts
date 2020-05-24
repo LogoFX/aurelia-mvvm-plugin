@@ -1,3 +1,4 @@
+// tslint:disable: no-redundant-jsdoc
 import * as util from './collection-util';
 import { LinkedList } from './linked-list';
 
@@ -11,7 +12,7 @@ export class Queue<T> {
      * @type collections.LinkedList
      * @private
      */
-    private list: LinkedList<T>;
+    private readonly list: LinkedList<T>;
 
     /**
      * Creates an empty queue.
@@ -46,10 +47,12 @@ export class Queue<T> {
      */
     public dequeue(): T | undefined {
         if (this.list.size() !== 0) {
-            const el = this.list.first();
+            const el: T = this.list.first();
             this.list.removeElementAtIndex(0);
+
             return el;
         }
+
         return undefined;
     }
     /**
@@ -61,6 +64,7 @@ export class Queue<T> {
         if (this.list.size() !== 0) {
             return this.list.first();
         }
+
         return undefined;
     }
 

@@ -1,7 +1,7 @@
 
-const _hasOwnProperty = Object.prototype.hasOwnProperty;
+const _hasOwnProperty: Function = Object.prototype.hasOwnProperty;
 
-export const has = (obj: any, prop: any) => {
+export const has: Function = (obj: any, prop: any): boolean => {
     return _hasOwnProperty.call(obj, prop);
 };
 
@@ -69,8 +69,8 @@ export function makeString<T>(item: T, join: string = ','): string {
     } else if (isString(item)) {
         return item.toString();
     } else {
-        let toret = '{';
-        let first = true;
+        let toret: string = '{';
+        let first: boolean = true;
         for (const prop in item) {
             if (has(item, prop)) {
                 if (first) {
@@ -81,6 +81,7 @@ export function makeString<T>(item: T, join: string = ','): string {
                 toret = `${toret} ${prop} : ${(<any>item)[prop]}`;
             }
         }
+
         return `${toret} }`;
     }
 }
@@ -111,7 +112,7 @@ export function isString(obj: any): boolean {
  */
 export function reverseCompareFunction<T>(compareFunction?: ICompareFunction<T>): ICompareFunction<T> {
     if (isUndefined(compareFunction) || !isFunction(compareFunction)) {
-        return (a, b) => {
+        return (a: T, b: T): number => {
             if (a < b) {
                 return 1;
             } else if (a === b) {
@@ -121,7 +122,7 @@ export function reverseCompareFunction<T>(compareFunction?: ICompareFunction<T>)
             }
         };
     } else {
-        return (d: T, v: T) => {
+        return (d: T, v: T): number => {
             return compareFunction(d, v) * -1;
         };
     }
@@ -131,7 +132,7 @@ export function reverseCompareFunction<T>(compareFunction?: ICompareFunction<T>)
  * @returns Returns an equal function given a compare function.
  */
 export function compareToEquals<T>(compareFunction: ICompareFunction<T>): IEqualsFunction<T> {
-    return (a: T, b: T) => {
+    return (a: T, b: T): boolean => {
         return compareFunction(a, b) === 0;
     };
 }

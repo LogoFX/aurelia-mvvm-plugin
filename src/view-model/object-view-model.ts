@@ -1,3 +1,4 @@
+// tslint:disable-next-line: ordered-imports
 import { Container, bindable } from 'aurelia-framework';
 import { ValidationController, validateTrigger } from 'aurelia-validation';
 import { IModel } from '../model';
@@ -28,8 +29,12 @@ export abstract class ObjectViewModel<T extends IModel<any>> implements IObjectV
   private _isSelected: boolean = false;
   private _isEnabled: boolean = true;
 
-  // tslint:disable-next-line: no-empty
-  protected isBusyChanged(value: boolean): void {  }
+  constructor(model: T) {
+    this.model = model;
+
+    this.validationController = Container.instance.get(ValidationController);
+    this.validationController.changeTrigger(validateTrigger.changeOrBlur);
+  }
 
   public get isBusy(): boolean {
     return this._isBusy;
@@ -49,8 +54,9 @@ export abstract class ObjectViewModel<T extends IModel<any>> implements IObjectV
   }
 
   public set isSelected(value: boolean) {
-      if (this._isSelected === value)
+      if (this._isSelected === value) {
           return;
+      }
 
       this._isSelected = value;
   }
@@ -66,10 +72,6 @@ export abstract class ObjectViewModel<T extends IModel<any>> implements IObjectV
       this._isEnabled = value;
   }
 
-  constructor(model: T) {
-    this.model = model;
+  protected isBusyChanged(value: boolean): void { /* */ }
 
-    this.validationController = Container.instance.get(ValidationController);
-    this.validationController.changeTrigger(validateTrigger.changeOrBlur);
-  }
 }

@@ -1,9 +1,3 @@
-/** 
- * The LogoFx module.
- * 
- * @moduledefinition LogoFX
-*/
-
 import * as __utils__ from './utils';
 
 export { __utils__ as utils };
@@ -14,8 +8,6 @@ export * from './ui-services';
 
 /**
  * Checks if the given argument is undefined.
- *
- * @module LogoFX
  */
 export function isUndefined(obj: any): boolean {
   return (typeof obj) === 'undefined';
@@ -23,15 +15,13 @@ export function isUndefined(obj: any): boolean {
 
 /**
  * Checks if the given argument is a string.
- *
- * @module LogoFX
  */
 export function isString(obj: any): boolean {
   return Object.prototype.toString.call(obj) === '[object String]';
 }
 
-const _hasOwnProperty = Object.prototype.hasOwnProperty;
-export const has = (obj: any, prop: any) => {
+const _hasOwnProperty: Function = Object.prototype.hasOwnProperty;
+export const has: Function = (obj: any, prop: any): Function => {
   return _hasOwnProperty.call(obj, prop);
 };
 
@@ -43,8 +33,8 @@ export function makeString<T>(item: T, join: string = ','): string {
   } else if (isString(item)) {
       return item.toString();
   } else {
-      let toret = '{';
-      let first = true;
+      let toret: string = '{';
+      let first: boolean = true;
       for (const prop in item) {
           if (has(item, prop)) {
               if (first) {
@@ -55,6 +45,7 @@ export function makeString<T>(item: T, join: string = ','): string {
               toret = `${toret} ${prop}: ${(<any>item)[prop]}`;
           }
       }
+
       return `${toret}` + '}';
   }
 }

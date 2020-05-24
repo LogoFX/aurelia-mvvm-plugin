@@ -64,6 +64,7 @@
     "ts-expect": "^1.1.0",
     "ts-jest": "^26.0.0",
     "tslint": "^6.1.2",
+    "tslint-microsoft-contrib": "^6.2.0",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3",
     "vinyl-fs": "^3.0.3"
@@ -74,8 +75,9 @@
     "jest": "jest --verbose --color",
     "start": "au run",
     "watch": "au build-plugin --watch",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
     "prepare": "npm run build",
-    "pretest": "au lint",
+    "pretest": "tslint --project tsconfig.json --config tslint.json",
     "preversion": "au test",
     "test": "au test",
     "html-doc": "cross-env rimraf doc/html-doc && typedoc --mode modules --hideGenerator --ignoreCompilerErrors --excludePrivate --excludeExternals --exclude '**/*+(index|.spec|.e2e).ts' --excludeNotExported --includeVersion --out doc/html-doc --theme node_modules/@convergencelabs/typedoc-theme/bin/default src",

@@ -1,4 +1,4 @@
-import { Dictionary } from "./dictionary";
+import { Dictionary } from './dictionary';
 
 /**
  * Represents indexed dictionary collection. The class isn't implemented properly.

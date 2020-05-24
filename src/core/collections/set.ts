@@ -5,7 +5,7 @@ import { Dictionary } from './dictionary';
 /**
  * Represents the set.
  */
-export default class Set<T> {
+export class Set<T> {
 
     /**
      * Dictionary key and value holds the elements in the set.
@@ -53,6 +53,7 @@ export default class Set<T> {
             return false;
         } else {
             this.dictionary.setValue(element, element);
+
             return true;
         }
     }
@@ -67,6 +68,7 @@ export default class Set<T> {
             if (!otherSet.contains(element)) {
                 this.remove(element);
             }
+
             return true;
         });
     }
@@ -79,6 +81,7 @@ export default class Set<T> {
     public union(otherSet: Set<T>): void {
         otherSet.forEach(function(element: T): boolean {
             this.add(element);
+
             return true;
         });
     }
@@ -91,6 +94,7 @@ export default class Set<T> {
     public difference(otherSet: Set<T>): void {
         otherSet.forEach(function(element: T): boolean {
             this.remove(element);
+
             return true;
         });
     }
@@ -106,14 +110,17 @@ export default class Set<T> {
             return false;
         }
 
-        let isSub = true;
-        this.forEach((element) => {
+        let isSub: boolean = true;
+        this.forEach((element: any): boolean => {
             if (!otherSet.contains(element)) {
                 isSub = false;
+
                 return false;
             }
+
             return true;
         });
+
         return isSub;
     }
 
@@ -126,6 +133,7 @@ export default class Set<T> {
             return false;
         } else {
             this.dictionary.remove(element);
+
             return true;
         }
     }
@@ -138,7 +146,7 @@ export default class Set<T> {
      * optionally return false.
      */
     public forEach(callback: util.ILoopFunction<T>): void {
-        this.dictionary.forEach((k, v) => {
+        this.dictionary.forEach((k: any, v: any): any => {
             return callback(v);
         });
     }

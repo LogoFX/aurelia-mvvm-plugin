@@ -32,7 +32,7 @@ export interface IEditableModel<T> extends IModel<T>, ICanBeDirty {
 }
 
 /**
- * Model
+ * Represents the model with ID
  */
 export class Model<T> implements IModel<T> {
 
@@ -66,7 +66,7 @@ export class EditableModel<T> extends Model<T> implements IEditableModel<T> {
   private _isDirty: boolean = false;
   private _isNew: boolean = false;
   private _isEditing: boolean = false;
-  private _originalState: IEditableModel<T>;
+  private readonly _originalState: IEditableModel<T>;
 
   constructor() {
     super();
@@ -81,6 +81,7 @@ export class EditableModel<T> extends Model<T> implements IEditableModel<T> {
   }
 
   public makeDirty(): void {
+    // tslint:disable-next-line: binary-expression-operand-order
     this._isDirty = (true && this._isEditing);
   }
 

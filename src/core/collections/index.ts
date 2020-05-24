@@ -1,5 +1,6 @@
 import * as _arrays from './arrays';
-export let arrays = _arrays;
+// tslint:disable-next-line: export-name
+export let arrays: any = _arrays;
 // export { default as Bag } from './Bag';
 // export { default as BSTree } from './BSTree';
 // export { default as BSTreeKV } from './BSTreeKV';

@@ -1,6 +1,7 @@
 // tslint:disable: member-ordering
 import { IEditableModel } from '../model/model';
 import { ObjectViewModel } from './object-view-model';
+import { ControllerValidateResult } from 'aurelia-validation';
 
 /**
  * EditableObjectViewModel
@@ -24,17 +25,21 @@ export abstract class EditableObjectViewModel<T extends IEditableModel<any>> ext
     }
 
     public endEdit(): void {
-      this.validationController.validate().then(async validation => {
+      this
+        .validationController
+        .validate()
+        .then(async (validation: ControllerValidateResult): Promise<void> => {
         if (!validation.valid) {
           throw new Error(validation.results.toString());
         } else {
           await this.save(this.model)
-          .then(() => {
+          .then((/* */): void => {
             this.model.commitEdit();
           })
-          .then(async () => this.afterSave(this.model));
+          .then(async (/* */): Promise<void> => this.afterSave(this.model));
         }
-      }).catch(async error => {
+      })
+      .catch(async (error: any): Promise<void> => {
         await this.showError(error);
       });
     }

@@ -52,12 +52,13 @@ export class LinkedList<T> {
      */
     public add(item: T, index?: number): boolean {
         if (util.isUndefined(index)) {
+            // tslint:disable-next-line: no-parameter-reassignment
             index = this.nElements;
         }
         if (index < 0 || index > this.nElements || util.isUndefined(item)) {
             return false;
         }
-        const newNode = this.createNode(item);
+        const newNode: ILinkedListNode<T> = this.createNode(item);
         if (this.nElements === 0 || this.lastNode === null) {
             // First node in the list.
             this.firstNode = newNode;
@@ -71,7 +72,7 @@ export class LinkedList<T> {
             newNode.next = this.firstNode;
             this.firstNode = newNode;
         } else {
-            const prev = this.nodeAtIndex(index - 1);
+            const prev: ILinkedListNode<T> = this.nodeAtIndex(index - 1);
             if (prev === null) {
                 return false;
             }
@@ -79,6 +80,7 @@ export class LinkedList<T> {
             prev.next = newNode;
         }
         this.nElements++;
+
         return true;
     }
 
@@ -92,6 +94,7 @@ export class LinkedList<T> {
         if (this.firstNode !== null) {
             return this.firstNode.element;
         }
+
         return undefined;
     }
 
@@ -105,6 +108,7 @@ export class LinkedList<T> {
         if (this.lastNode !== null) {
             return this.lastNode.element;
         }
+
         return undefined;
     }
 
@@ -116,10 +120,11 @@ export class LinkedList<T> {
      */
     public elementAtIndex(index: number): T | undefined {
 
-        const node = this.nodeAtIndex(index);
+        const node: ILinkedListNode<T> = this.nodeAtIndex(index);
         if (node === null) {
             return undefined;
         }
+
         return node.element;
     }
 
@@ -145,12 +150,13 @@ export class LinkedList<T> {
      */
     public indexOf(item: T, equalsFunction?: util.IEqualsFunction<T>): number {
 
-        const equalsF = equalsFunction || util.defaultEquals;
+        // tslint:disable-next-line: strict-boolean-expressions
+        const equalsF: util.IEqualsFunction<T> = equalsFunction || util.defaultEquals;
         if (util.isUndefined(item)) {
             return -1;
         }
-        let currentNode = this.firstNode;
-        let index = 0;
+        let currentNode: ILinkedListNode<T> = this.firstNode;
+        let index: number = 0;
         while (currentNode !== null) {
             if (equalsF(currentNode.element, item)) {
                 return index;
@@ -158,6 +164,7 @@ export class LinkedList<T> {
             index++;
             currentNode = currentNode.next;
         }
+
         return -1;
     }
 
@@ -199,7 +206,8 @@ export class LinkedList<T> {
      * @return {boolean} true if the list contained the specified element.
      */
     public remove(item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
-        const equalsF = equalsFunction || util.defaultEquals;
+        // tslint:disable-next-line: strict-boolean-expressions
+        const equalsF: any = equalsFunction || util.defaultEquals;
         if (this.nElements < 1 || util.isUndefined(item)) {
             return false;
         }
@@ -223,11 +231,13 @@ export class LinkedList<T> {
                     currentNode.next = null;
                 }
                 this.nElements--;
+
                 return true;
             }
             previous = currentNode;
             currentNode = currentNode.next;
         }
+
         return false;
     }
 
@@ -251,13 +261,15 @@ export class LinkedList<T> {
      * @return {boolean} true if this list is equal to the given list.
      */
     public equals(other: any, equalsFunction?: util.IEqualsFunction<T>): boolean {
-        const eqF = equalsFunction || util.defaultEquals;
+        // tslint:disable-next-line: strict-boolean-expressions
+        const eqF: any = equalsFunction || util.defaultEquals;
         if (!(other instanceof LinkedList)) {
             return false;
         }
         if (this.size() !== other.size()) {
             return false;
         }
+
         return this.equalsAux(this.firstNode, other.firstNode, eqF);
     }
 
@@ -277,7 +289,7 @@ export class LinkedList<T> {
             this.firstNode = null;
             this.lastNode = null;
         } else {
-            const previous = this.nodeAtIndex(index - 1);
+            const previous: ILinkedListNode<T> = this.nodeAtIndex(index - 1);
             if (previous === null) {
                 element = this.firstNode.element;
                 this.firstNode = this.firstNode.next;
@@ -291,6 +303,7 @@ export class LinkedList<T> {
             }
         }
         this.nElements--;
+
         return element;
     }
 
@@ -301,7 +314,7 @@ export class LinkedList<T> {
      * optionally return false.
      */
     public forEach(callback: util.ILoopFunction<T>): void {
-        let currentNode = this.firstNode;
+        let currentNode: ILinkedListNode<T> = this.firstNode;
         while (currentNode !== null) {
             if (callback(currentNode.element) === false) {
                 break;
@@ -342,6 +355,7 @@ export class LinkedList<T> {
             array.push(currentNode.element);
             currentNode = currentNode.next;
         }
+
         return array;
     }
 
@@ -373,9 +387,12 @@ export class LinkedList<T> {
             if (!eqF(n1.element, n2.element)) {
                 return false;
             }
+            // tslint:disable: no-parameter-reassignment
             n1 = n1.next;
             n2 = n2.next;
+            // tslint:restore: no-parameter-reassignment
         }
+
         return true;
     }
 
@@ -390,10 +407,11 @@ export class LinkedList<T> {
         if (index === (this.nElements - 1)) {
             return this.lastNode;
         }
-        let node = this.firstNode;
-        for (let i = 0; i < index && node !== null; i++) {
+        let node: ILinkedListNode<T> = this.firstNode;
+        for (let i: number = 0; i < index && node !== null; i++) {
             node = node.next;
         }
+
         return node;
     }
 

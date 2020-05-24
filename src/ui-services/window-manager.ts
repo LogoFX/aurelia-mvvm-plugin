@@ -14,16 +14,17 @@ export interface IWindowManager {
 export class WindowManager implements IWindowManager {
 
   // tslint:disable: no-parameter-properties
-  constructor(private dialogService: DialogService) {}
+  constructor(private readonly dialogService: DialogService) {}
 
   public async show(viewModel: IObjectViewModel<any>): Promise<DialogCloseResult> {
     // tslint:disable: no-floating-promises
 
-    return new Promise(resolve => {
+    return new Promise((resolve: (value?: DialogCloseResult | PromiseLike<DialogCloseResult>) => void): void => {
         this.dialogService.open({
                 viewModel: Dialog,
                 model: viewModel
-              }).whenClosed(response => {
+              })
+              .whenClosed((response: any): void => {
                 resolve(response);
             });
     });

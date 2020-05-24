@@ -1,8 +1,3 @@
-/**
- * @moduledefinition The Core Collections
- */
-
-/** Dummy */
 import * as util from './collection-util';
 import * as arrays from './arrays';
 
@@ -56,6 +51,7 @@ export class Dictionary<K, V> {
     constructor(toStrFunction?: (key: K) => string) {
         this.table = {};
         this.nElements = 0;
+        // tslint:disable-next-line: strict-boolean-expressions
         this.toStr = toStrFunction || util.defaultToString;
     }
 
@@ -71,6 +67,7 @@ export class Dictionary<K, V> {
         if (util.isUndefined(pair)) {
             return undefined;
         }
+
         return pair.value;
     }
 
@@ -91,7 +88,7 @@ export class Dictionary<K, V> {
         }
 
         let ret: V | undefined;
-        const k = `$${this.toStr(key)}`;
+        const k: string = `$${this.toStr(key)}`;
         const previousElement: IDictionaryPair<K, V> = this.table[k];
         if (util.isUndefined(previousElement)) {
             this.nElements++;
@@ -103,6 +100,7 @@ export class Dictionary<K, V> {
             key: key,
             value: value
         };
+
         return ret;
     }
 
@@ -114,13 +112,16 @@ export class Dictionary<K, V> {
      * there was no mapping for key.
      */
     public remove(key: K): V | undefined {
-        const k = `$${this.toStr(key)}`;
+        const k: string = `$${this.toStr(key)}`;
         const previousElement: IDictionaryPair<K, V> = this.table[k];
         if (!util.isUndefined(previousElement)) {
+            // tslint:disable-next-line: no-dynamic-delete
             delete this.table[k];
             this.nElements--;
+
             return previousElement.value;
         }
+
         return undefined;
     }
 
@@ -136,6 +137,7 @@ export class Dictionary<K, V> {
                 array.push(pair.key);
             }
         }
+
         return array;
     }
 
@@ -151,6 +153,7 @@ export class Dictionary<K, V> {
                 array.push(pair.value);
             }
         }
+
         return array;
     }
 
@@ -165,7 +168,7 @@ export class Dictionary<K, V> {
         for (const name in this.table) {
             if (util.has(this.table, name)) {
                 const pair: IDictionaryPair<K, V> = this.table[name];
-                const ret = callback(pair.key, pair.value);
+                const ret: any = callback(pair.key, pair.value);
                 if (ret === false) {
                     return;
                 }
@@ -210,10 +213,11 @@ export class Dictionary<K, V> {
     }
 
     public toString(): string {
-        let toret = '{';
-        this.forEach((k, v) => {
+        let toret: string = '{';
+        this.forEach((k: K, v: V): any => {
             toret += `\n\t${k} : ${v}`;
         });
+
         return `${toret}\\n}`;
     }
 } // End of dictionary

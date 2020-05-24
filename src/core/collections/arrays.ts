@@ -1,5 +1,4 @@
 
-/** Dummy */
 // tslint:disable: no-redundant-jsdoc
 import * as util from './collection-util';
 
@@ -16,13 +15,15 @@ import * as util from './collection-util';
  *
  */
 export function indexOf<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): number {
-    const equalityFunction = equalsFunction || util.defaultEquals;
-    const length = array.length;
-    for (let i = 0; i < length; i++) {
+    // tslint:disable-next-line: strict-boolean-expressions
+    const equalityFunction: any = equalsFunction || util.defaultEquals;
+    const length: number = array.length;
+    for (let i: number = 0; i < length; i++) {
         if (equalityFunction(array[i], item)) {
             return i;
         }
     }
+
     return -1;
 }
 
@@ -37,13 +38,15 @@ export function indexOf<T>(array: T[], item: T, equalsFunction?: util.IEqualsFun
  * within the specified array or -1 if not found.
  */
 export function lastIndexOf<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): number {
-    const equalityFunction = equalsFunction || util.defaultEquals;
-    const length = array.length;
-    for (let i = length - 1; i >= 0; i--) {
+    // tslint:disable-next-line: strict-boolean-expressions
+    const equalityFunction: any = equalsFunction || util.defaultEquals;
+    const length: number = array.length;
+    for (let i: number = length - 1; i >= 0; i--) {
         if (equalityFunction(array[i], item)) {
             return i;
         }
     }
+
     return -1;
 }
 
@@ -68,11 +71,12 @@ export function contains<T>(array: T[], item: T, equalsFunction?: util.IEqualsFu
  * @return {boolean} true if the array changed after this call.
  */
 export function remove<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): boolean {
-    const index = indexOf(array, item, equalsFunction);
+    const index: number = indexOf(array, item, equalsFunction);
     if (index < 0) {
         return false;
     }
     array.splice(index, 1);
+
     return true;
 }
 
@@ -87,14 +91,16 @@ export function remove<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunc
  * equal to the specified object.
  */
 export function frequency<T>(array: T[], item: T, equalsFunction?: util.IEqualsFunction<T>): number {
-    const equalityFunction = equalsFunction || util.defaultEquals;
-    const length = array.length;
-    let freq = 0;
-    for (let i = 0; i < length; i++) {
+    // tslint:disable-next-line: strict-boolean-expressions
+    const equalityFunction: any = equalsFunction || util.defaultEquals;
+    const length: number = array.length;
+    let freq: number = 0;
+    for (let i: number = 0; i < length; i++) {
         if (equalityFunction(array[i], item)) {
             freq++;
         }
     }
+
     return freq;
 }
 
@@ -110,17 +116,19 @@ export function frequency<T>(array: T[], item: T, equalsFunction?: util.IEqualsF
  * @return {boolean} true if the two arrays are equal
  */
 export function equals<T>(array1: T[], array2: T[], equalsFunction?: util.IEqualsFunction<T>): boolean {
-    const equalityFunction = equalsFunction || util.defaultEquals;
+    // tslint:disable-next-line: strict-boolean-expressions
+    const equalityFunction: any = equalsFunction || util.defaultEquals;
 
     if (array1.length !== array2.length) {
         return false;
     }
-    const length = array1.length;
-    for (let i = 0; i < length; i++) {
+    const length: number = array1.length;
+    for (let i: number = 0; i < length; i++) {
         if (!equalityFunction(array1[i], array2[i])) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -144,9 +152,10 @@ export function swap<T>(array: T[], i: number, j: number): boolean {
     if (i < 0 || i >= array.length || j < 0 || j >= array.length) {
         return false;
     }
-    const temp = array[i];
+    const temp: T = array[i];
     array[i] = array[j];
     array[j] = temp;
+
     return true;
 }
 

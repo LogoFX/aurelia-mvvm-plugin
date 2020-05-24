@@ -7,20 +7,22 @@ export class Guid {
   /**
    * Gets the regular expression, which may be used to validate string representation of the GUID.
    */
-  public static validator: RegExp = new RegExp("^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$", "i");
+  public static validator: RegExp = new RegExp('^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$', 'i');
 
   /**
    *  Gets the empty ("zero") GUID string.
    */
-  public static EMPTY: string = "00000000-0000-0000-0000-000000000000";
+  public static EMPTY: string = '00000000-0000-0000-0000-000000000000';
 
-  private value: string;
+  private readonly value: string;
 
   private constructor(guid: string) {
-      if (!guid) { throw new TypeError("Invalid argument; `value` has no value."); }
+      // tslint:disable-next-line: strict-boolean-expressions
+      if (!guid) { throw new TypeError('Invalid argument; `value` has no value.'); }
 
       this.value = Guid.EMPTY;
 
+      // tslint:disable-next-line: strict-boolean-expressions
       if (guid && Guid.isGuid(guid)) {
           this.value = guid;
       }
@@ -34,7 +36,9 @@ export class Guid {
    */
   // tslint:disable-next-line: function-name
   public static isGuid(guid: any): boolean {
+
       const value: string = guid.toString();
+
       return guid && (guid instanceof Guid || Guid.validator.test(value));
   }
 
@@ -43,12 +47,12 @@ export class Guid {
    */
   // tslint:disable-next-line: function-name
   public static create(): Guid {
-      return new Guid([Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join("-"));
+      return new Guid([Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join('-'));
   }
 
   // tslint:disable-next-line: function-name
   public static createEmpty(): Guid {
-      return new Guid("emptyguid");
+      return new Guid('emptyguid');
   }
 
   /**
@@ -65,17 +69,21 @@ export class Guid {
    */
   // tslint:disable-next-line: function-name
   public static raw(): string {
-      return [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join("-");
+      return [Guid.gen(2), Guid.gen(1), Guid.gen(1), Guid.gen(1), Guid.gen(3)].join('-');
   }
 
   private static gen(count: number): string {
-      let out: string = "";
+      let out: string = '';
       for (let i: number = 0; i < count; i++) {
           // tslint:disable-next-line:no-bitwise
           let random: number = crypto.getRandomValues(new Uint32Array(1))[0];
           random = random / Math.pow(10, random.toString().length);
-          out += (((1 + random) * 0x10000) | 0).toString(16).substring(1);
+          // tslint:disable-next-line: binary-expression-operand-order
+          out += (((1 + random) * 0x10000) | 0)
+                    .toString(16)
+                    .substring(1);
       }
+
       return out;
   }
 
@@ -107,7 +115,7 @@ export class Guid {
    */
   public toJSON(): any {
       return {
-          value: this.value,
+          value: this.value
       };
   }
 }
