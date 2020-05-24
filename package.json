@@ -77,7 +77,6 @@
     "start": "au run",
     "watch": "au build-plugin --watch",
     "lint": "tslint --project tsconfig.json --config tslint.json",
-    "prepare": "npm run build",
     "pretest": "tslint --project tsconfig.json --config tslint.json",
     "preversion": "au test",
     "test": "au test",
