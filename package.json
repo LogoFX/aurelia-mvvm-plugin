@@ -39,6 +39,7 @@
     "conventional-changelog": "^3.1.21",
     "conventional-changelog-cli": "^2.0.34",
     "copyfiles": "^2.2.0",
+    "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
     "debounce": "^1.2.0",
     "del": "^5.1.0",
@@ -76,10 +77,10 @@
     "start": "au run",
     "watch": "au build-plugin --watch",
     "lint": "tslint --project tsconfig.json --config tslint.json",
-    "prepare": "npm run build",
     "pretest": "tslint --project tsconfig.json --config tslint.json",
     "preversion": "au test",
     "test": "au test",
+    "test-ci": "cross-env jest --coverage",
     "html-doc": "cross-env rimraf doc/html-doc && typedoc --mode modules --hideGenerator --ignoreCompilerErrors --excludePrivate --excludeExternals --exclude '**/*+(index|.spec|.e2e).ts' --excludeNotExported --includeVersion --out doc/html-doc --theme node_modules/@convergencelabs/typedoc-theme/bin/default src",
     "predoc": "cross-env rimraf doc/api.json && rimraf dist/doc-temp && tsc --project tsconfig.json --outFile dist/doc-temp/aurelia-mvvm.js && node doc/shape-defs && copyfiles tsconfig.json dist/doc-temp",
     "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name aurelia-mvvm-docs dist/doc-temp/",
@@ -138,6 +139,10 @@
       "text",
       "html"
     ]
+  },
+  "dependencies": {
+    "aurelia-dialog": "^2.0.0",
+    "aurelia-validation": "^2.0.0-rc1"
   },
   "peerDependencies": {
     "aurelia-dialog": "^2.0.0",
