@@ -100,6 +100,7 @@
     "src"
   ],
   "jest": {
+    "preset": "ts-jest",
     "verbose": true,
     "moduleNameMapper": {
       "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding",
