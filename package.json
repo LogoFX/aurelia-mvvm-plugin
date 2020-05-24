@@ -141,6 +141,10 @@
       "html"
     ]
   },
+  "dependencies": {
+    "aurelia-dialog": "^2.0.0",
+    "aurelia-validation": "^2.0.0-rc1"
+  },
   "peerDependencies": {
     "aurelia-dialog": "^2.0.0",
     "aurelia-validation": "^2.0.0-rc1"
