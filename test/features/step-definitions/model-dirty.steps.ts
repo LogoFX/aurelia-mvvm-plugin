@@ -1,10 +1,13 @@
-import { SimpleEditableModel } from '../objects/simple-editable-model';
+import { ModelSteps } from './../steps/model-steps';
+import { SimpleEditableModel } from './../objects/simple-editable-model';
+import { DataGenerator } from '../../helpers/DataGenerator';
 import { defineFeature, loadFeature, DefineStepFunction } from "jest-cucumber";
 
 const feature = loadFeature('./test/features/model-dirty.feature');
 
 defineFeature(feature, test => {
 
+  let modelSteps : ModelSteps = new ModelSteps();
   let model : SimpleEditableModel;  
 
   const andTheSimpleEditableModelIsMadeDirty = (and: DefineStepFunction) => {
@@ -22,11 +25,11 @@ defineFeature(feature, test => {
   }) => {
 
     when('The simple editable model is created with valid name', () => {
-      model = new SimpleEditableModel('valid-name');
+      model = modelSteps.createValidSimpleEditableModel();
     });   
   
     then('The simple editable model is not marked as dirty', () => {
-      expect(model.isDirty).toBe(false);     
+      modelSteps.assertModelIsNotDirty(model);  
     });
   });
 
@@ -36,15 +39,15 @@ defineFeature(feature, test => {
     then
   }) => {
     when('The simple editable model is created with valid name', () => {
-      model = new SimpleEditableModel('valid-name');
+      model = modelSteps.createValidSimpleEditableModel();
     });
   
     and('The simple editable model is made dirty', () => {
-      model.makeDirty();
+      modelSteps.makeDirty(model);
     });
   
     then('The simple editable model is not marked as dirty', () => {
-      expect(model.isDirty).toBe(false);
+      modelSteps.assertModelIsNotDirty(model);
     });
   });
 
@@ -54,22 +57,42 @@ defineFeature(feature, test => {
     then
   }) => {
     when('The simple editable model is created with valid name', () => {
-      model = new SimpleEditableModel('valid-name');
+      model = modelSteps.createValidSimpleEditableModel();
     });
   
     and('The editing is started for the simple editable model', () => {
-      model.beginEdit();
+      modelSteps.beginEdit(model);
     });
   
     and('The simple editable model is made dirty', () => {
-      model.makeDirty();
+      modelSteps.makeDirty(model);
     });
   
     then('The simple editable model is marked as dirty', () => {
-      expect(model.isDirty).toBe(true);
+      modelSteps.assertModelIsDirty(model);
     });
   });
 
+  test('Setting property to invalid value to a valid simple editable model results in model which is marked as dirty', ({
+    when,
+    and,
+    then
+  }) => {
+    when('The simple editable model is created with valid name', () => {
+      model = modelSteps.createValidSimpleEditableModel();
+    });
   
+    and('The editing is started for the simple editable model', () => {
+      modelSteps.beginEdit(model);
+    });
+  
+    and('The simple editable model is updated with invalid value for property', () => {
+      modelSteps.updateName(model, DataGenerator.InvalidName);
+    });
+  
+    then('The simple editable model is marked as dirty', () => {
+      modelSteps.assertModelIsDirty(model);
+    });
+  });
 })
 

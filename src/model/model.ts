@@ -19,16 +19,17 @@ export interface ICanBeDirty {
 
 }
 
-export interface IEditableModel<T> extends IModel<T>, ICanBeDirty {
-
-  isNew: boolean;
-
+export interface IEditableObject {
   beginEdit(): void;
 
   cancelEdit(): void;
 
   commitEdit(): void;
+}
 
+export interface IEditableModel<T> extends IModel<T>, ICanBeDirty, IEditableObject {
+
+  isNew: boolean;
 }
 
 /**
