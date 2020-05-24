@@ -108,7 +108,8 @@
     },
     "verbose": true,
     "moduleNameMapper": {
-      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding"
+      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding",
+      "^.+\\.css$": "<rootDir>/test/mock-css"
     },
     "modulePaths": [
       "<rootDir>/src",
@@ -120,6 +121,7 @@
       "json"
     ],
     "transform": {
+      "^.+\\.(css|less|sass|scss|styl|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
       "^.+\\.ts$": "ts-jest"
     },
     "testMatch": [
