@@ -101,6 +101,11 @@
   ],
   "jest": {
     "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
     "verbose": true,
     "moduleNameMapper": {
       "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding"
