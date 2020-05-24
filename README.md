@@ -7,6 +7,7 @@ This library contains a plugin that provides foundational MVVM types.
 ![npm (scoped)](https://img.shields.io/npm/v/@logofx/aurelia-mvvm-plugin)
 ![node-current](https://img.shields.io/node/v/@logofx/aurelia-mvvm-plugin)
 
+[![CircleCI](https://circleci.com/gh/LogoFX/aurelia-mvvm-plugin.svg?style=shield)](https://circleci.com/gh/LogoFX/aurelia-mvvm-plugin)
 ![GitHub search hit counter](https://img.shields.io/github/search/logofx/aurelia-mvvm-plugin/aurelia)
 
 ## What it does

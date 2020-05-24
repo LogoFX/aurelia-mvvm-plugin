@@ -103,8 +103,7 @@
     "preset": "ts-jest",
     "verbose": true,
     "moduleNameMapper": {
-      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding",
-      "^.+\\.css$": "<rootDir>/test/mock-css"
+      "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding"
     },
     "modulePaths": [
       "<rootDir>/src",
