@@ -53,7 +53,7 @@
     "open": false,
     "index": "index.html",
     "baseDir": ".",
-    "output": "scripts"
+    "output": "dist"
   },
   "build": {
     "targets": [
@@ -61,7 +61,7 @@
         "port": 9000,
         "index": "index.html",
         "baseDir": ".",
-        "output": "scripts"
+        "output": "dist"
       }
     ],
     "options": {
