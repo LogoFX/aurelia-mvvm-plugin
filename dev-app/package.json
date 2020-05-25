@@ -8,11 +8,18 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@aurelia-ux/components": "^0.20.0",
+    "@aurelia-ux/icons": "^0.20.0",
+    "@aurelia-ux/modal": "^0.20.0",
+    "@aurelia-ux/positioning": "^0.20.0",
     "@logofx/aurelia-mvvm-plugin": "^0.2.1",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-dialog": "^2.0.0",
-    "aurelia-validation": "^2.0.0-rc1"
+    "aurelia-validation": "^2.0.0-rc1",
+    "moment": "^2.26.0",
+    "prismjs": "^1.20.0",
+    "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@convergencelabs/typedoc-plugin-custom-modules": "^0.4.0",
