@@ -7,7 +7,15 @@
     "plugin",
     "logofx",
     "mvvm",
-    "typescript"
+    "typescript",
+    "glyad",
+    "kossoglyad",
+    "DI",
+    "IoC",
+    "Dependency Injection",
+    "Inversion of Control",
+    "SPA",
+    "aurelia plugin"
   ],
   "homepage": "https://github.com/LogoFX/aurelia-mvvm-plugin",
   "bugs": {
