@@ -1,4 +1,41 @@
 <template>
-  <h1>FUCK</h1>
-  <h1>${message}</h1>
+<require from="./app.css"></require>
+<require from="resources/elements/layout/sidebar/sidebar"></require>
+
+<sidebar></sidebar>
+
+<!-- <ux-drawer type="permanent">
+  <header>
+    <a href="/getting-started" style="max-width: 90px; width: 100%;">
+      
+      <h1>Aurelia UX</h1>
+    </a>
+  </header>
+  <ux-list class="drawer-menu">
+    <template repeat.for="[category, routes] of router.navigation | categories">
+      <div class="ux-list-item header">
+        ${category.title}
+      </div>
+      <div class="ux-list-item ${nav.isActive ? 'active' : ''}" repeat.for="nav of routes">
+        <a class="list-content" href.bind="nav.href">
+          ${nav.title}
+        </a>
+      </div>
+    </template>
+  </ux-list>
+</ux-drawer> -->
+
+<main>
+  <ux-toolbar>
+    <div class="toolbar-row">
+      <span class="title">
+        ${router.currentInstruction.config.navModel.title}
+      </span>
+      <span class="spacer"></span>
+      <!-- <span click.delegate="toggleTheme()" style="cursor: pointer;">Toggle Theme</span> -->
+    </div>
+  </ux-toolbar>
+
+  <router-view class="page"></router-view>
+</main>
 </template>
