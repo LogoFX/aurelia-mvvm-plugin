@@ -6,27 +6,33 @@
       <p>
         MVVM PLugin is a companion framework to Aurelia.
       </p>  
+
+      <p>
+        The Aurelia framework provides two well-known approaches to create robust WEB applications, which are the component-oriented approach and the approach based on MVVM design pattern. Anyway, the Aurelia lacks implementation of some infrastructures for clean implementation of the MVVM pattern.
+      </p>
       
+      <p>
+        In order to facilitate Aurelia as MVVM framework, the plugin provides base types for implementation of application Models and View-Models. In addition the plugin contains implementation of the Window Manager, as a view-model service allowing to open modal (HTML) dialogs from a view-model in clean VM-First manner.
+      </p>
+
       <h1>Setting Up MVVM Plugin</h1>
 
       <p>
-        Getting setup with Aurelia UX is a quick process, and depending on your bundler of choice can be ready to go with a quick
+        Getting setup with Aurelia MVVM Plugin is a quick process, and depending on your bundler of choice can be ready to go with a quick
         npm command and a couple lines of code.
       </p>
           
       <h2>Installing Aurelia MVVM Plugin</h2>
+      
+      <code-block type="shell">
+        npm install @logofx/aurelia-mvvm-plugin --save
+      </code-block>
     
       <h3>Webpack</h3>
     
       <p>
         There is not much you are required to do to get Aurelia MVVM Plugin working with webpack.
       </p>
-    
-      <h4>Install Aurelia MVVM Plugin</h4>
-
-      <code-block type="shell">
-        npm install @logofx/aurelia-mvvm-plugin --save
-      </code-block>
     
       <h4>Setup the plugin in your application configuration</h4>
       <code-block>
@@ -57,8 +63,6 @@
       </code-block>
     
       <p>And that is it, you are ready to start using Aurelia MVVM Plugin.</p>
-
-      <p>And that is it, you are ready to start using Aurelia UX.</p>
 
     </ux-grid-cell>
   </ux-grid>
