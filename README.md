@@ -2,6 +2,8 @@
 
 This library contains a plugin that provides foundational MVVM types.
 
+You can find an online demo and the documentation here, [https://aurelia-mvvm-plugin.github.io](https://aurelia-mvvm-plugin.github.io).
+
 ![GitHub](https://img.shields.io/github/license/LogoFX/aurelia-mvvm-plugin)
 ![npm](https://img.shields.io/npm/dt/@logofx/aurelia-mvvm-plugin?logo=npm)
 ![npm (scoped)](https://img.shields.io/npm/v/@logofx/aurelia-mvvm-plugin)
