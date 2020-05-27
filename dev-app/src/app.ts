@@ -11,7 +11,7 @@ export class App {
   private theme = localStorage.getItem('theme');
 
   constructor(private styleEngine: StyleEngine) {
-    this.styleEngine.applyThemeGroup(this.theme == 'dark' ? (<any>themes).dark : (<any>themes).light);
+    this.styleEngine.applyThemeGroup(this.theme == 'dark' ? themes.dark : themes.light);
   }
 
   configureRouter(config: RouterConfiguration, router: Router) {
@@ -27,7 +27,7 @@ export class App {
     this.theme = this.theme === 'light' ? 'dark' : 'light';
 
     localStorage.setItem('theme', this.theme);
-    this.styleEngine.applyThemeGroup(this.theme == 'dark' ? (<any>themes).dark : (<any>themes).light);
+    this.styleEngine.applyThemeGroup(this.theme == 'dark' ? themes.dark : themes.light);
   }
 }
 

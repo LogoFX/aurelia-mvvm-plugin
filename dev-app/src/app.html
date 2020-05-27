@@ -1,5 +1,6 @@
 <template>
 <require from="./app.css"></require>
+<require from="./common.css"></require>
 <require from="resources/elements/layout/sidebar/sidebar"></require>
 
 <sidebar></sidebar>
@@ -32,7 +33,7 @@
         ${router.currentInstruction.config.navModel.title}
       </span>
       <span class="spacer"></span>
-      <!-- <span click.delegate="toggleTheme()" style="cursor: pointer;">Toggle Theme</span> -->
+      <span click.delegate="toggleTheme()" style="cursor: pointer;">Toggle Theme</span>
     </div>
   </ux-toolbar>
 

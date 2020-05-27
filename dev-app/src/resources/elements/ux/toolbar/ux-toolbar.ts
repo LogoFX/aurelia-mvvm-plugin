@@ -7,7 +7,7 @@ import { UxToolbarTheme } from './ux-toolbar-theme';
 @inject(Element, EventAggregator, StyleEngine)
 @customElement('ux-toolbar')
 export class UxToolbar {
-  @bindable public theme: UxToolbarTheme;
+  @bindable public theme: UxToolbarTheme = new UxToolbarTheme();
   public isNavigating = false;
   private subscriber: any = {};
 
