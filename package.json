@@ -1,7 +1,7 @@
 {
   "name": "@logofx/aurelia-mvvm-plugin",
   "description": "The set of helpful infrastructures to build MVVM apps with Aurelia framework.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "keywords": [
     "aurelia",
     "plugin",
@@ -94,7 +94,7 @@
     "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name aurelia-mvvm-docs dist/doc-temp/",
     "postdoc": "cross-env node doc/shape-doc && rimraf dist/doc-temp",
     "changelog": "cross-env conventional-changelog -p angular -i doc/CHANGELOG.md -s",
-    "precut-release": "npm run test && npm run build && npm run doc && npm run html-doc",
+    "pre-cut-release": "npm run test && npm run build && npm run doc && npm run html-doc",
     "cut-release": "standard-version -t \"\" -i doc/CHANGELOG.md"
   },
   "engines": {
