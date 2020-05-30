@@ -10,7 +10,15 @@ sidebar {
   color: var(--aurelia-ux--drawer-selected-foreground, #fff);
   display: flex;
   align-items: center;
-  height: 52px;
+  /* height: 52px; */
+}
+
+.logo-title {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 48px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--aurelia-ux--drawer-foreground, #fff);
 }
 
 ux-drawer.app-drawer aside {
