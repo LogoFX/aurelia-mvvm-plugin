@@ -8,7 +8,7 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "removeComments": true,
+    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,

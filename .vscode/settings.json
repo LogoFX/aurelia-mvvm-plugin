@@ -28,6 +28,7 @@
       "But": "relative",
   },
   "cucumberautocomplete.onTypeFormat": true,
+  "editor.insertSpaces": true,
   "editor.quickSuggestions": {
       "comments": false,
       "strings": true,
@@ -76,4 +77,5 @@
     "woff"
 ],
 "liveServer.settings.port": 5501,
+"smartAutocomplete": true
 }
