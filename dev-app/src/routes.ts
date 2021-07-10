@@ -1,5 +1,6 @@
 import { PLATFORM } from "aurelia-pal";
 
+
 let coreFeatures = 'Core Features';
 
 let formComponents = 'Form Components';
@@ -7,8 +8,9 @@ let formComponents = 'Form Components';
 let layoutComponents = 'Layout Components';
 
 export let routes = [
-  { route: '', redirect: 'getting-started' },
+  { route: '', redirect: 'home' },
 
+  { settings: { category: null, icon: 'home', hideFromSummary: true }, route: 'home', moduleId: PLATFORM.moduleName('routes/home'), name: 'home', title: 'Home', nav: true },
   { settings: { category: coreFeatures, icon: 'settings' }, route: 'getting-started', moduleId: PLATFORM.moduleName('routes/getting-started'), name: 'gettingstarted', title: 'Getting Started', nav: true },
   // { settings: { category: coreFeatures, icon: 'format_paint' }, route: 'theming', moduleId: PLATFORM.moduleName('routes/theming/theming'), name: 'theming', title: 'Theming', nav: true },
   // { settings: { category: layoutComponents }, route: 'cards', moduleId: PLATFORM.moduleName('routes/components/cards'), name: 'cards', title: 'Cards', nav: true },

@@ -18,20 +18,20 @@
       <template repeat.for="[category, routes] of router.navigation | sidenavCategories">
 
         <sidebar-menu-group category.bind="category" if.bind="category != null">
-          <span slot="sub-routes">
+          <!-- <span slot="sub-routes">
             <template repeat.for="route of routes">
               <template if.bind="!route.settings.hideFromSummary">
                 ${route.title},
               </template>
             </template>
-          </span>
+          </span> -->
           <a slot="content" class="${route.isActive ? 'active' : ''} sidebar-menu-group__details-anchor" href.bind="route.href" repeat.for="route of routes">
             ${route.title}
           </a>
         </sidebar-menu-group>
 
         <template if.bind="!category">
-          <a class="${route.isActive ? 'active' : ''} sidebar-menu__anchor" href.bind="route.href | routeParser" repeat.for="route of routes">
+          <a class="${route.isActive ? 'active' : ''} sidebar-menu__anchor" href.bind="route.href" repeat.for="route of routes">
             ${route.title}
           </a>
         </template>

@@ -8,12 +8,24 @@
       "appBackground": "#fafafa",
       "appForeground": "#212121"
     }, {
-    "themeKey": "toolbar",
-
-    "shadow": "none",
-    "background": "transparent",
-    "foreground": "#333"
-  },{
+      "themeKey": "panel",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "#333"
+    }, {
+      "themeKey": "toolbar",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "#333"
+    },{
+      "themeKey": "card",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "#333"
+    },{
     "themeKey": "drawer",
 
     "background": "#fff",
@@ -32,12 +44,24 @@
       "appBackground": "#33333d",
       "appForeground": "#fff"
     }, {
-    "themeKey": "toolbar",
-
-    "shadow": "none",
-    "background": "transparent",
-    "foreground": "inherit"
-  },{
+      "themeKey": "panel",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "inherit"
+    }, {
+      "themeKey": "toolbar",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "inherit"
+    }, {
+      "themeKey": "card",
+  
+      "shadow": "none",
+      "background": "transparent",
+      "foreground": "#fff"
+    },{
     "themeKey": "drawer",
 
     "background": "#31313B",

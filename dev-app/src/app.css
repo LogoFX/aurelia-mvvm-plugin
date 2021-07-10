@@ -21,6 +21,14 @@ body {
   flex-direction: row;
 }
 
+footer {
+  position: fixed;
+  left: 160px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
 ul, ol {
   list-style: initial;
   padding-left: 32px;

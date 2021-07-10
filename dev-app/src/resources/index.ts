@@ -7,6 +7,7 @@ export function configure(config: FrameworkConfiguration) {
     // UX Components in development
     PLATFORM.moduleName('./elements/ux/ux-drawer/ux-drawer'),
     PLATFORM.moduleName('./elements/ux/toolbar/ux-toolbar'),
-    PLATFORM.moduleName('./elements/ux/tabs/ux-tabs')
+    PLATFORM.moduleName('./elements/ux/tabs/ux-tabs'),
+    PLATFORM.moduleName('./elements/ux/panel/ux-panel')
   ]);
 }

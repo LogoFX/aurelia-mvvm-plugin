@@ -1,0 +1,88 @@
+<template>
+  <section>
+    <ux-grid class="ux-grid--remove-padding">
+      <ux-grid-cell>
+        <ux-panel>
+          <ux-grid class="ux-grid--remove-padding">
+            <ux-grid-cell md="12" class="cell align-self-middle" style="height: 160px;">
+              <div class="logo" style="text-align: center; vertical-align: middle; display: box;">
+                <img style="margin-right: 10px; height: 128px; vertical-align: middle;"
+                  src="../../images/aurelia-icon-128x128.png">
+                <span class="logo-title" style="vertical-align: middle; font-size: 64px;">+</span>
+                <img style="margin-left: 10px; height: 128px; vertical-align: middle;" src="../../images/LogoFX.png">
+              </div>
+            </ux-grid-cell>
+            <ux-grid-cell class="cell align-self-middle" style="text-align: center;" md="12">
+              <i>Make Aurelia Great Again</i>
+            </ux-grid-cell>
+            <ux-grid-cell class="cell align-self-bottom" xs="6" style="text-align: right;">
+              <ux-button click.delegate="navigateToRoute('gettingstarted')">Getting Started</ux-button>
+            </ux-grid-cell>
+            <ux-grid-cell class="cell align-self-bottom" xs="6">
+              <ux-button click.delegate="navigateToGitHub()">
+                <img style="height: 24px; vertical-align: middle;" src="../../images/github-white-icon.png">
+                &nbsp;&nbsp;&nbsp;&nbsp; view on github
+              </ux-button>
+            </ux-grid-cell>
+          </ux-grid>
+        </ux-panel>
+      </ux-grid-cell>
+    </ux-grid>
+  </section>
+  <section>
+    <ux-grid class="ux-grid--remove-padding">
+      <ux-grid-cell md="3" sd="0"></ux-grid-cell>
+      <ux-grid-cell md="2" sd="4">
+        <ux-card>
+          <ux-card-header>
+            <ux-icon icon="view_compact" class="ux-card__thumbnail"></ux-icon>
+            <div class="ux-card-header__row">
+              <span class="ux-card__title">The true MVVM</span>
+              <span class="ux-card__sub-title">The super clean implementation of the MVVM pattern</span>
+            </div>
+          </ux-card-header>
+          <ux-card-content>
+            &nbsp;
+          </ux-card-content>
+
+        </ux-card>
+      </ux-grid-cell>
+      <ux-grid-cell md="2" sd="4">
+        <ux-card>
+          <ux-card-header>
+            <ux-icon icon="view_compact" class="ux-card__thumbnail"></ux-icon>
+            <div class="ux-card-header__row">
+              <span class="ux-card__title">The true MVVM</span>
+              <span class="ux-card__sub-title">The super clean implementation of the MVVM pattern</span>
+            </div>
+          </ux-card-header>
+          <ux-card-content>
+            &nbsp;
+          </ux-card-content>
+
+        </ux-card>
+      </ux-grid-cell>
+      <ux-grid-cell md="2" sd="4">
+        <ux-grid-cell md="2" sd="4">
+          <ux-card>
+            <ux-card-header>
+              <ux-icon icon="view_compact" class="ux-card__thumbnail"></ux-icon>
+              <div class="ux-card-header__row">
+                <span class="ux-card__title">The true MVVM</span>
+                <span class="ux-card__sub-title">The super clean implementation of the MVVM pattern</span>
+              </div>
+            </ux-card-header>
+            <ux-card-content>
+              &nbsp;
+            </ux-card-content>
+  
+          </ux-card>
+        </ux-grid-cell>
+      </ux-grid-cell>
+      <ux-grid-cell md="3" sd="0"></ux-grid-cell>
+    </ux-grid>
+  </section>
+  <footer style="display: block; position: absolute;">
+    Copyright © 2020 David Kossoglyad, LogoFX, and contributors.
+  </footer>
+</template>
