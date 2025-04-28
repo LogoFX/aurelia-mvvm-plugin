@@ -3,7 +3,8 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "module": "amd",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "strict": true,
     "declaration": true,
     "typeRoots": [
       "./node_modules/@types"
