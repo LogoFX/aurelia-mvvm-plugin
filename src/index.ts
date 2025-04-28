@@ -1,4 +1,5 @@
-import "reflect-metadata";
+// import "reflect-metadata";
+// import "aurelia-polyfills";
 
 import * as __utils__ from './utils';
 
