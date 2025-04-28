@@ -1,11 +1,10 @@
-// tslint:disable-next-line: ordered-imports
-import { Container, bindable } from 'aurelia-framework';
-import { ValidationController, validateTrigger } from 'aurelia-validation';
+import { bindable, Container } from 'aurelia-framework';
+import { validateTrigger, ValidationController } from 'aurelia-validation';
 import { IModel } from '../model';
 
 export interface IObjectWrapper<T extends IModel<any>> {
 
-    model: T;
+  model: T;
 }
 
 export interface IObjectViewModel<T extends IModel<any>> extends IObjectWrapper<T> {
@@ -23,11 +22,12 @@ export abstract class ObjectViewModel<T extends IModel<any>> implements IObjectV
 
   @bindable()
   public model: T;
-  public validationController: ValidationController;
 
-  private _isBusy: boolean = false;
-  private _isSelected: boolean = false;
-  private _isEnabled: boolean = true;
+  public readonly validationController: ValidationController;
+
+  private _isBusy = false;
+  private _isSelected = false;
+  private _isEnabled = true;
 
   constructor(model: T) {
     this.model = model;
@@ -50,26 +50,26 @@ export abstract class ObjectViewModel<T extends IModel<any>> implements IObjectV
   }
 
   public get isSelected(): boolean {
-      return this._isSelected;
+    return this._isSelected;
   }
 
   public set isSelected(value: boolean) {
-      if (this._isSelected === value) {
-          return;
-      }
+    if (this._isSelected === value) {
+      return;
+    }
 
-      this._isSelected = value;
+    this._isSelected = value;
   }
 
   public get isEnabled(): boolean {
-      return this._isEnabled;
+    return this._isEnabled;
   }
 
   public set isEnabled(value: boolean) {
-      if (this._isEnabled === value) {
-          return;
-      }
-      this._isEnabled = value;
+    if (this._isEnabled === value) {
+      return;
+    }
+    this._isEnabled = value;
   }
 
   protected isBusyChanged(value: boolean): void { /* */ }

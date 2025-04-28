@@ -2,13 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "esModuleInterop": true,
-    "module": "amd",
-    "noImplicitAny": false,
     "declaration": true,
     "typeRoots": [
       "./node_modules/@types"
     ],
-    "removeComments": false,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -20,6 +18,7 @@
     "moduleResolution": "node",
     "baseUrl": "src",
     "resolveJsonModule": true,
+    "importHelpers": true,
     "paths": {
       "resources": [
         ""
@@ -28,10 +27,9 @@
     "allowJs": false
   },
   "include": [
-    "./src/**/*.ts",
-    "./dev-app/**/*.ts",
-    "./test/**/*.ts",
-    "./types/**/*.d.ts"
+    "src",
+    "dev-app",
+    "test"
   ],
   "atom": {
     "rewriteTsconfig": false

@@ -1,5 +1,5 @@
 import * as gulp from 'gulp';
-import * as del from 'del';
+import { rm } from 'fs/promises';
 import { pluginMarkup } from './process-markup';
 import { pluginCSS } from './process-css';
 import { pluginJson } from './process-json';
@@ -7,7 +7,7 @@ import { buildPluginJavaScript } from './transpile';
 import { CLIOptions } from 'aurelia-cli';
 
 function clean() {
-  return del('dist');
+  return rm('dist', { recursive: true, force: true });
 }
 
 let build = gulp.series(

@@ -1,6 +1,6 @@
 import * as gulp from 'gulp';
 import * as path from 'path';
-import * as minimatch from 'minimatch';
+import { minimatch } from 'minimatch';
 import * as project from '../aurelia.json';
 
 export default function copyFiles(done) {

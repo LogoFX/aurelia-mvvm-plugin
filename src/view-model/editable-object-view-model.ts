@@ -1,54 +1,58 @@
-// tslint:disable: member-ordering
+import { computedFrom } from 'aurelia-binding';
 import { IEditableModel } from '../model/model';
 import { ObjectViewModel } from './object-view-model';
-import { ControllerValidateResult } from 'aurelia-validation';
 
 /**
  * EditableObjectViewModel
  */
-export abstract class EditableObjectViewModel<T extends IEditableModel<any>> extends ObjectViewModel<T> {
+export abstract class EditableObjectViewModel<T extends IEditableModel<unknown>> extends ObjectViewModel<T> {
 
-    // tslint:disable: no-parameter-properties
-    constructor(model: T) {
-      super(model);
+  constructor(model: T) {
+    super(model);
+  }
+
+  public canCancelChanges = false;
+
+  private _isEditing = false;
+  @computedFrom("_isEditing")
+  public get isEditing() {
+    return this._isEditing;
+  }
+  private set isEditing(value: boolean) {
+    this._isEditing = value;
+  }
+
+  public beginEdit(): void {
+    this.model.beginEdit();
+    this.isEditing = true;
+  }
+
+  public cancelEdit(): void {
+    //this.copyModel(this.originalModel);
+    //this.discard(this.model);
+    this.model.cancelEdit();
+    this.isEditing = false;
+  }
+
+  public async endEdit(): Promise<boolean> {
+    const validation = await this.validationController.validate();
+    if (validation.valid) {
+      await this.save(this.model);
+      this.model.commitEdit();
+      await this.afterSave(this.model);
+      this.isEditing = false;
+      return true;
+    } else {
+      await this.showError(new Error(validation.results.toString()));
+      return false;
     }
+  }
 
-    public canCancelChanges: boolean;
+  protected abstract save(model: T): Promise<void>;
 
-    public beginEdit(): void {
-      this.model.beginEdit();
-    }
+  protected abstract afterSave(model: T): Promise<void>;
 
-    public cancelEdit(): void {
-        //this.copyModel(this.originalModel);
-        //this.discard(this.model);
-    }
+  protected abstract discard(model: T): Promise<void>;
 
-    public endEdit(): void {
-      this
-        .validationController
-        .validate()
-        .then(async (validation: ControllerValidateResult): Promise<void> => {
-        if (!validation.valid) {
-          throw new Error(validation.results.toString());
-        } else {
-          await this.save(this.model)
-          .then((/* */): void => {
-            this.model.commitEdit();
-          })
-          .then(async (/* */): Promise<void> => this.afterSave(this.model));
-        }
-      })
-      .catch(async (error: any): Promise<void> => {
-        await this.showError(error);
-      });
-    }
-
-    protected async abstract save(model: T): Promise<any>;
-
-    protected async abstract afterSave(model: T): Promise<any>;
-
-    protected async abstract discard(model: T): Promise<any>;
-
-    protected async abstract showError(error: any): Promise<any>;
+  protected abstract showError(error: unknown): Promise<void>;
 }

@@ -11,7 +11,6 @@ export default (cb) => {
     Object.assign(options, { watchAll: true});
   }
 
-
   runCLI(options, [path.resolve(__dirname, '../../')]).then(({ results }) => {
     if (results.numFailedTests || results.numFailedTestSuites) {
       cb('Tests Failed');

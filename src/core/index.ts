@@ -1,6 +1,7 @@
 
 import { ObserverLocator } from 'aurelia-binding';
-import { Container, BindingEngine } from 'aurelia-framework';
+import { BindingEngine } from 'aurelia-framework';
+import { resolve } from './resolve';
 
 /**
  * The Core module.
@@ -8,27 +9,28 @@ import { Container, BindingEngine } from 'aurelia-framework';
 
 export * from './guid';
 export * from './collections';
+export * from "./resolve";
 
 /**
  * @returns The default instance of the Binding Engine.
  */
 export function getDefaultBindingEngine(): BindingEngine {
-    return Container.instance.get<BindingEngine>(BindingEngine);
+  return resolve<BindingEngine>(BindingEngine);
 }
 
 /**
  * @returns The default instance of the Observer Locator.
  */
 export function getDefaultObserverLocator(): ObserverLocator {
-    return Container.instance.get<ObserverLocator>(ObserverLocator);
+  return resolve<ObserverLocator>(ObserverLocator);
 }
 
 declare global {
-  // tslint:disable-next-line: interface-name
   interface StringConstructor {
     empty: string;
     isEmptyOrWhitespace(s: string): boolean;
-}}
+  }
+}
 
 String.empty = ''.toString();
 

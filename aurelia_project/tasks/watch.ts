@@ -1,5 +1,5 @@
 import * as gulp from 'gulp';
-import * as minimatch from 'minimatch';
+import { minimatch } from 'minimatch';
 import * as gulpWatch from 'gulp-watch';
 import * as debounce from 'debounce';
 import * as project from '../aurelia.json';

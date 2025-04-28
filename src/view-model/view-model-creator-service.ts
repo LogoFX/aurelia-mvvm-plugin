@@ -1,7 +1,6 @@
 import { Container } from 'aurelia-framework';
 
 export interface IViewModelCreatorService {
-  // tslint:disable-next-line: typedef
   create<T>(type);
 }
 
@@ -9,19 +8,17 @@ export interface IViewModelCreatorService {
  * The default implementation
  */
 export class ViewModelCreatorService implements IViewModelCreatorService {
-    public create<T>(type: any, ...rest: any[]): T {
-        const instance: T = <T>Container.instance.get(type);
+  public create<T>(type: any, ...rest: any[]): T {
+    const instance: T = Container.instance.get(type) as T;
 
-        if (rest.length > 0) {
-          // tslint:disable-next-line: no-string-literal
-          instance['model'] = rest[0];
-          if (rest.length > 1) {
-            // tslint:disable-next-line: no-string-literal
-            instance['navigationService'] = rest[1];
-          }
-        }
-
-        // console.log(rest);
-        return instance;
+    if (rest.length > 0) {
+      instance['model'] = rest[0];
+      if (rest.length > 1) {
+        instance['navigationService'] = rest[1];
+      }
     }
+
+    // console.log(rest);
+    return instance;
+  }
 }

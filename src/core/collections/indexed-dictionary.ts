@@ -5,53 +5,53 @@ import { Dictionary } from './dictionary';
  */
 export class IndexedDictionary<TKey, TValue> extends Dictionary<TKey, TValue> {
 
-    protected internalKeys: Set<TKey> = new Set<TKey>();
+  protected internalKeys: Set<TKey> = new Set<TKey>();
 
-    private _replaceDuplicateKeys: boolean;
-    private _throwErrorOnInvalidRemove: boolean;
+  private _replaceDuplicateKeys: boolean;
+  private _throwErrorOnInvalidRemove: boolean;
 
-    constructor () {
-      super();
-    }
+  constructor() {
+    super();
+  }
 
-    public get replaceDuplicateKeys(): boolean {
-        return this._replaceDuplicateKeys;
-    }
+  public get replaceDuplicateKeys(): boolean {
+    return this._replaceDuplicateKeys;
+  }
 
-    public set replaceDuplicateKeys(value: boolean) {
-        this._replaceDuplicateKeys = value;
-    }
+  public set replaceDuplicateKeys(value: boolean) {
+    this._replaceDuplicateKeys = value;
+  }
 
-    public get throwErrorOnInvalidRemove(): boolean {
-        return this._throwErrorOnInvalidRemove;
-    }
+  public get throwErrorOnInvalidRemove(): boolean {
+    return this._throwErrorOnInvalidRemove;
+  }
 
-    public set throwErrorOnInvalidRemove(value: boolean) {
-        this._throwErrorOnInvalidRemove = value;
-    }
+  public set throwErrorOnInvalidRemove(value: boolean) {
+    this._throwErrorOnInvalidRemove = value;
+  }
 
-    /// <summary>
-    /// Makes sure int is not used as dictionary key:
-    /// </summary>
-    // private validateKeyType(): void    {
-    //     const x: TKey = new (): TKey;
+  /// <summary>
+  /// Makes sure int is not used as dictionary key:
+  /// </summary>
+  // private validateKeyType(): void    {
+  //     const x: TKey = new (): TKey;
 
-    //     if (typeof x === "number")
-    //     {
-    //         throw new Error("Key of type int is not supported.");
-    //     }
-    // }
+  //     if (typeof x === "number")
+  //     {
+  //         throw new Error("Key of type int is not supported.");
+  //     }
+  // }
 
-    public add(key: TKey, value: TValue): void { /* */  }
+  public add(key: TKey, value: TValue): void { /* */ }
 
-    public addAt(index: number, key: TKey, value: TValue): void { /* */ }
+  public addAt(index: number, key: TKey, value: TValue): void { /* */ }
 
-    public contains(key: TKey): boolean {
-        return super.containsKey(this.transformKey(key));
-    }
+  public contains(key: TKey): boolean {
+    return super.containsKey(this.transformKey(key));
+  }
 
-    protected transformKey(key: TKey): TKey {
-        return key;
-    }
+  protected transformKey(key: TKey): TKey {
+    return key;
+  }
 
 }

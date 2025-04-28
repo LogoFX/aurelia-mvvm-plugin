@@ -7,8 +7,7 @@ export class Dialog {
 
   private viewModel: IObjectViewModel<any>;
 
-  // tslint:disable-next-line: no-empty
-  constructor (dialogController: DialogController) {}
+  constructor(dialogController: DialogController) { }
 
   protected activate(viewModel: IObjectViewModel<any>): void {
     this.viewModel = viewModel;
